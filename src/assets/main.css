@@ -1,0 +1,138 @@
+@import './base.css';
+@import url('https://fonts.googleapis.com/css2?family=Fanwood+Text:ital@0;1&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --r: (100/1512) * 1vw;
+  --rm: (100/320) * 1vw;
+
+  
+}
+
+body {
+  font-family: "Fanwood Text", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: max(14 * var(--r), 14px);
+  @apply
+  bg-slate-50;
+}
+
+header {
+  padding: calc(20 * var(--r));
+  @apply
+  text-black
+  top-0
+  right-0
+  fixed
+  z-50
+  w-full
+  grid
+  gap-3
+  grid-cols-6
+  md:grid-cols-13;
+  &.white {
+    @apply
+    text-white;
+  }
+}
+
+footer {
+  margin-top: calc(387 * var(--r));;
+  padding: calc(20 * var(--r));
+  @media screen and (max-width: 768px) {
+    padding: calc(10 * var(--rm));
+  }
+
+  @apply
+  grid
+  grid-cols-6
+  md:grid-cols-13;
+  .mail {
+    @apply
+    col-span-1
+    col-start-1
+    md:col-start-4;
+  }
+  .phone {
+    @apply
+    col-span-3
+    md:col-span-1
+    col-start-2
+    md:col-start-5;
+  }
+  p {
+    @apply
+    text-right
+    col-span-2
+    md:col-span-1
+    col-start-5
+    md:col-start-13
+  }
+}
+
+
+header h1 {
+  @apply
+  col-span-2;
+}
+
+header nav {
+  @apply
+  text-right
+  md:col-start-11
+  col-span-4
+  md:col-span-3
+  grid
+  gap-3
+  grid-cols-3;
+}
+
+main.project-loop, main.services-page, .project-media, .about {
+  padding-top: calc(106 * var(--r));
+  padding-left: calc(20 * var(--r));
+  padding-right: calc(20 * var(--r));
+
+  @media screen and (max-width: 768px) {
+    padding-top: calc(60 * var(--rm));
+    padding-left: calc(0 * var(--rm));
+    padding-right: calc(0 * var(--rm));
+  }
+
+}
+
+.media-container {
+  @apply
+  overflow-hidden
+  bg-black
+  
+  flex
+  justify-center
+  items-center
+  relative;
+}
+
+.media-container video {
+  @apply
+  w-full;
+}
+
+.media-container img {
+  @apply
+  h-auto
+  w-full;
+}
+
+.aspect-16_9 {
+  @apply
+  aspect-16/9;
+}
+
+.aspect-3_4 {
+  @apply
+  aspect-3/4;
+}
