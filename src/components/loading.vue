@@ -55,7 +55,7 @@ export default {
     }
   }
   .loading {
-    height: 100vh;
+    height: 100dvh;
     width: 100vw;
     @apply
     z-40

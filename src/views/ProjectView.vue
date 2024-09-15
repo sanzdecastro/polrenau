@@ -82,7 +82,7 @@ export default {
             },
           },
         });
-      }
+      },
   },
   watch: {
       loading(value) {
@@ -102,7 +102,7 @@ export default {
 <template>
 
   <main class="view">
-    <section class="project-view"  >
+    <section class="project-view" :class="{ 'only-one': data.View && data.View.GridView && data.View.GridView.length === 1 }">
      
         <div class="project-media grid"  :class="
           getViewColumns(data.View) === 'col1' ? 'grid-cols-1' :
@@ -167,13 +167,27 @@ export default {
 
 <style>
 
+  .project-view {
+    &.only-one {
+      .project-media {
+        @apply
+        !pt-0
+        !px-0;
+      }
+    }
+  }
+
   .project-media {
     min-height: 100vh;
     @apply
     -z-10
     bg-black
-    text-white
-    ;
+    text-white;
+    .media-section {
+      @apply
+      justify-center
+      items-center;
+    }
   }
 
 
