@@ -104,35 +104,35 @@ export default {
   <main class="view">
     <section class="project-view" :class="{ 'only-one': data.View && data.View.GridView && data.View.GridView.length === 1 }">
      
-        <div class="project-media grid"  :class="
-          getViewColumns(data.View) === 'col1' ? 'grid-cols-1' :
-          getViewColumns(data.View) === 'col2' ? 'grid-cols-2' : 
-          getViewColumns(data.View) === 'col3' ? 'grid-cols-3' : 
-          getViewColumns(data.View) === 'col4' ? 'grid-cols-4' : 
-          getViewColumns(data.View) === 'col5' ? 'grid-cols-5' : 
-          getViewColumns(data.View) === 'col6' ? 'grid-cols-6' : 
-          getViewColumns(data.View) === 'col7' ? 'grid-cols-7' : 
-          getViewColumns(data.View) === 'col8' ? 'grid-cols-8' : 
-          getViewColumns(data.View) === 'col9' ? 'grid-cols-9' : 
-          getViewColumns(data.View) === 'col10' ? 'grid-cols-10' : 
-          getViewColumns(data.View) === 'col11' ? 'grid-cols-11' : 
-          getViewColumns(data.View) === 'col12' ? 'grid-cols-12' : 
-          getViewColumns(data.View) === 'col13' ? 'grid-cols-13' : '' ">
+        <div class="project-media flex md:grid"  :class="
+          getViewColumns(data.View) === 'col1' ? 'md:grid-cols-1' :
+          getViewColumns(data.View) === 'col2' ? 'md:grid-cols-2' : 
+          getViewColumns(data.View) === 'col3' ? 'md:grid-cols-3' : 
+          getViewColumns(data.View) === 'col4' ? 'md:grid-cols-4' : 
+          getViewColumns(data.View) === 'col5' ? 'md:grid-cols-5' : 
+          getViewColumns(data.View) === 'col6' ? 'md:grid-cols-6' : 
+          getViewColumns(data.View) === 'col7' ? 'md:grid-cols-7' : 
+          getViewColumns(data.View) === 'col8' ? 'md:grid-cols-8' : 
+          getViewColumns(data.View) === 'col9' ? 'md:grid-cols-9' : 
+          getViewColumns(data.View) === 'col10' ? 'md:grid-cols-10' : 
+          getViewColumns(data.View) === 'col11' ? 'md:grid-cols-11' : 
+          getViewColumns(data.View) === 'col12' ? 'md:grid-cols-12' : 
+          getViewColumns(data.View) === 'col13' ? 'md:grid-cols-13' : '' ">
             <div class="grid media-section" :class="projectViewClasses">
               <div v-for="media in getViewMedia(data.View)" :class="
-                  media.Columns === 'col1' ? 'col-span-1' :
-                  media.Columns === 'col2' ? 'col-span-2' : 
-                  media.Columns === 'col3' ? 'col-span-3' : 
-                  media.Columns === 'col4' ? 'col-span-4' : 
-                  media.Columns === 'col5' ? 'col-span-5' : 
-                  media.Columns === 'col6' ? 'col-span-6' : 
-                  media.Columns === 'col7' ? 'col-span-7' : 
-                  media.Columns === 'col8' ? 'col-span-8' : 
-                  media.Columns === 'col9' ? 'col-span-9' : 
-                  media.Columns === 'col10' ? 'col-span-10' : 
-                  media.Columns === 'col11' ? 'col-span-11' : 
-                  media.Columns === 'col12' ? 'col-span-12' : 
-                  media.Columns === 'col13' ? 'col-span-13' : '' ">
+                  media.Columns === 'col1' ? 'col-span-full md:col-span-1' :
+                  media.Columns === 'col2' ? 'col-span-full md:col-span-2' : 
+                  media.Columns === 'col3' ? 'col-span-full md:col-span-3' : 
+                  media.Columns === 'col4' ? 'col-span-full md:col-span-4' : 
+                  media.Columns === 'col5' ? 'col-span-full md:col-span-5' : 
+                  media.Columns === 'col6' ? 'col-span-full md:col-span-full' : 
+                  media.Columns === 'col7' ? 'col-span-full md:col-span-7' : 
+                  media.Columns === 'col8' ? 'col-span-full md:col-span-8' : 
+                  media.Columns === 'col9' ? 'col-span-full md:col-span-9' : 
+                  media.Columns === 'col10' ? 'col-span-full md:col-span-10' : 
+                  media.Columns === 'col11' ? 'col-span-full md:col-span-11' : 
+                  media.Columns === 'col12' ? 'col-span-full md:col-span-12' : 
+                  media.Columns === 'col13' ? 'col-span-full md:col-span-13' : '' ">
 
                   <videoProject :media="media"/>
 
