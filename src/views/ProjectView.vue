@@ -85,16 +85,18 @@ export default {
       },
   },
   watch: {
-      loading(value) {
-        if (!value) {
-          // La variable cambió a false
-          this.$nextTick(() => {
+    loading(value) {
+      if (!value) {
+        // La variable cambió a false
+        this.$nextTick(() => {
+          this.resetHeader();
+          this.toTop();
+          setTimeout(() => {
             this.pinnedSection();
-            this.resetHeader();
-            this.toTop();
-          });
-        }
+          }, 1000);
+        });
       }
+    }
   }
 }
 </script>
@@ -191,7 +193,11 @@ export default {
     -z-10
     bg-black
     text-white;
-    
+    padding-bottom: calc(106 * var(--r));
+
+    @media screen and (max-width: 768px) {
+      padding-bottom: calc(60 * var(--rm));
+    }
   }
 
 
