@@ -156,9 +156,9 @@ export default {
             <p>{{data.Year}}</p>
           </div>
 
-          <screenshots v-if="data.Screenshots" :screenshot="data.Screenshots"/>
+          <screenshots v-if="data.Screenshots && data.Screenshots.data !== null" :screenshot="data.Screenshots"/>
             
-          <relatedProjects v-if="data.Related" :related="data.Related"/>
+          <relatedProjects v-if="data.Related && data.Related.data.length !== 0" :related="data.Related"/>
           
         </div>
 
@@ -287,6 +287,7 @@ export default {
   .view + footer {
     margin-top: 0px;
     @apply
+    relative
     bg-gray-200;
   }
 
