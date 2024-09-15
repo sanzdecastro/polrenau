@@ -71,23 +71,23 @@ export default {
 
 <template>
 
-  <main class="services-page grid grid-cols-13">
-    <section class="services-view col-start-2 grid col-span-12 grid-cols-12">
+  <main class="services-page grid grid-cols-6 md:grid-cols-13">
+    <section class="services-view md:col-start-2 grid grid-cols-6 col-span-6 md:col-span-12 md:grid-cols-12">
      
         <div class="examples" v-for="service in data.data" :class="
-          service.attributes.Columns === 'col1' ? 'col-span-1' :
-          service.attributes.Columns === 'col2' ? 'col-span-2' : 
-          service.attributes.Columns === 'col3' ? 'col-span-3' : 
-          service.attributes.Columns === 'col4' ? 'col-span-4' : 
-          service.attributes.Columns === 'col5' ? 'col-span-5' : 
-          service.attributes.Columns === 'col6' ? 'col-span-6' : 
-          service.attributes.Columns === 'col7' ? 'col-span-7' : 
-          service.attributes.Columns === 'col8' ? 'col-span-8' : 
-          service.attributes.Columns === 'col9' ? 'col-span-9' : 
-          service.attributes.Columns === 'col10' ? 'col-span-10' : 
-          service.attributes.Columns === 'col11' ? 'col-span-11' : 
-          service.attributes.Columns === 'col12' ? 'col-span-12' : 
-          service.attributes.Columns === 'col13' ? 'col-span-13' : '' ">
+          service.attributes.Columns === 'col1' ? 'col-span-4 col-start-3 md:col-span-1' :
+          service.attributes.Columns === 'col2' ? 'col-span-4 col-start-3 md:col-span-2' : 
+          service.attributes.Columns === 'col3' ? 'col-span-4 col-start-3 md:col-span-3' : 
+          service.attributes.Columns === 'col4' ? 'col-span-4 col-start-3 md:col-span-4' : 
+          service.attributes.Columns === 'col5' ? 'col-span-4 col-start-3 md:col-span-5' : 
+          service.attributes.Columns === 'col6' ? 'col-span-4 col-start-3 md:col-span-6' : 
+          service.attributes.Columns === 'col7' ? 'col-span-4 col-start-3 md:col-span-7' : 
+          service.attributes.Columns === 'col8' ? 'col-span-4 col-start-3 md:col-span-8' : 
+          service.attributes.Columns === 'col9' ? 'col-span-4 col-start-3 md:col-span-9' : 
+          service.attributes.Columns === 'col10' ? 'col-span-4 col-start-3 md:col-span-10' : 
+          service.attributes.Columns === 'col11' ? 'col-span-4 col-start-3 md:col-span-11' : 
+          service.attributes.Columns === 'col12' ? 'col-span-4 col-start-3 md:col-span-12' : 
+          service.attributes.Columns === 'col13' ? 'col-span-4 col-start-3 md:col-span-13' : '' ">
           <div class="info">
             <h2>{{ service.attributes.Titulo }}</h2>
             <p>{{ service.attributes.Description }}</p>

@@ -83,9 +83,10 @@ header h1 {
 
 header nav {
   @apply
-  text-right
+  md:text-right
+  col-start-3
   md:col-start-11
-  col-span-4
+  col-span-3
   md:col-span-3
   grid
   gap-3
@@ -109,7 +110,6 @@ main.project-loop, main.services-page, .project-media, .about {
   @apply
   overflow-hidden
   bg-black
-  
   flex
   justify-center
   items-center

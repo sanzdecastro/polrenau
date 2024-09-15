@@ -168,11 +168,19 @@ export default {
 <style>
 
   .project-view {
+    .pin-spacer {
+      z-index: 0!important;
+    }
     &.only-one {
       .project-media {
         @apply
         !pt-0
         !px-0;
+        .media-section {
+          @apply
+          justify-center
+          items-center;
+        }
       }
     }
   }
@@ -183,17 +191,14 @@ export default {
     -z-10
     bg-black
     text-white;
-    .media-section {
-      @apply
-      justify-center
-      items-center;
-    }
+    
   }
 
 
   .project-info {
     min-height: 50vh;
-    
+    z-index: 1;
+    position: relative;
     @apply
     bg-slate-50
     grid
@@ -217,7 +222,7 @@ export default {
     col-end-8;
     p {
       
-      padding-bottom: calc(300 * var(--r));
+      padding-bottom: calc(76 * var(--r));
       
     }
   }
