@@ -26,13 +26,20 @@ export default {
             autoAlpha: 0,
           })
 
+          gsap.set('.legend', {
+            autoAlpha: 0,
+          })
+
           tl.to('.media-container', {
             autoAlpha: 1,
             duration: .5,
           }).to('.media-animation', {
             autoAlpha: 1,
             duration: 0.8,
-          });
+          }).to('.legend', {
+            autoAlpha: 1,
+            duration: 0.4,
+          },'<');
         },
   }
 }
@@ -44,8 +51,14 @@ export default {
     <video autoplay playsinline controls loop controlsList="nodownload" :src="media.Media.data.attributes.url" v-if="media.Media.data.attributes.ext === '.mp4' && media.autoplay === true" class="media-animation"></video>
     <img :src="media.Media.data.attributes.url" v-if="media.Media.data.attributes.ext === '.jpg' || media.Media.data.attributes.ext === '.png'" class="media-animation">
   </div>
+  <div v-if="media.Leyenda !== null" class="legend">{{ media.Leyenda }}</div>
 </template>
 
 <style>
+.legend {
+  @apply
+  pt-1
+  text-gray-400;
+}
 
 </style>
