@@ -108,6 +108,7 @@ main.project-loop, main.services-page, .project-media, .about {
 
 .media-container {
   @apply
+  w-full
   overflow-hidden
   bg-black
   flex

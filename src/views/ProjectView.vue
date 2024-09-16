@@ -127,7 +127,7 @@ export default {
                   media.Columns === 'col3' ? 'col-span-full md:col-span-3' : 
                   media.Columns === 'col4' ? 'col-span-full md:col-span-4' : 
                   media.Columns === 'col5' ? 'col-span-full md:col-span-5' : 
-                  media.Columns === 'col6' ? 'col-span-full md:col-span-full' : 
+                  media.Columns === 'col6' ? 'col-span-full md:col-span-6' : 
                   media.Columns === 'col7' ? 'col-span-full md:col-span-7' : 
                   media.Columns === 'col8' ? 'col-span-full md:col-span-8' : 
                   media.Columns === 'col9' ? 'col-span-full md:col-span-9' : 
@@ -179,6 +179,7 @@ export default {
         !pt-0
         !px-0;
         .media-section {
+          min-height: 100vh;
           @apply
           justify-center
           items-center;
@@ -220,6 +221,10 @@ export default {
     @apply 
     col-start-2
     col-end-4;
+    p {
+      @apply
+      text-gray-400;
+    }
   }
 
   .project-info_desc {
@@ -227,7 +232,7 @@ export default {
     col-start-4
     col-end-8;
     p {
-      
+     
       padding-bottom: calc(76 * var(--r));
       
     }
