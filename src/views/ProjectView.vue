@@ -175,9 +175,11 @@ export default {
     }
     &.only-one {
       .project-media {
+        padding-bottom: calc(0 * var(--r))!important;
         @apply
         !pt-0
         !px-0;
+        
         .media-section {
           min-height: 100vh;
           @apply
