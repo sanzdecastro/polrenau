@@ -23,7 +23,7 @@ export default {
       var p = intro.querySelectorAll("p");
 
       gsap.set (name, {
-        xPercent: 70,
+        xPercent: 50,
         autoAlpha: 0,
       })
 
@@ -98,6 +98,7 @@ export default {
 
   .intro-wrapper {
     @apply
+    overflow-hidden
     flex;
 
     & > div {
