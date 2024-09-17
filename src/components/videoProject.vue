@@ -1,6 +1,6 @@
 <script>
 import { gsap } from "gsap";
-// import videojs from 'video.js';
+import videojs from 'video.js';
 
 export default {
   name: 'videoProject',
@@ -14,16 +14,16 @@ export default {
   },
   mounted() {
     this.animateVideos();
-    // this.player = videojs(this.$refs.videoPlayer, {
-    //   controls: true,
-    //   autoplay: this.media.autoplay,
-    //   preload: 'none',
-    //   loop: true,
-    //   sources: [{
-    //     src: this.media.Media.data.attributes.url,
-    //     type: 'video/mp4'
-    //   }]
-    // });
+    this.player = videojs(this.$refs.videoPlayer, {
+      controls: true,
+      autoplay: this.media.autoplay,
+      preload: 'none',
+      loop: true,
+      sources: [{
+        src: this.media.Media.data.attributes.url,
+        type: 'video/mp4'
+      }]
+    });
   },
   methods: {
     animateVideos() {
@@ -52,6 +52,17 @@ export default {
             duration: 0.4,
           },'<');
         },
+  },
+  removeControls() {
+    var video = document.querySelector('video');
+  
+  video.addEventListener('play', function() {
+    video.setAttribute('controls', '');
+  });
+  
+  video.addEventListener('pause', function() {
+    video.removeAttribute('controls');
+  });
   }
 }
 </script>
@@ -59,9 +70,11 @@ export default {
 <template>
   
   <div class="media-container" :class="media.AspectRatio">
-    <!-- <video  ref="videoPlayer" class="vjs-matrix video-js " :poster=media.Media.data.attributes.previewUrl></video> -->
-    <video controls :src="media.Media.data.attributes.url" v-if="media.Media.data.attributes.ext === '.mp4' && media.autoplay != true" class="media-animation" :poster=media.Media.data.attributes.previewUrl></video>
-    <video autoplay playsinline controls loop controlsList="nodownload" :src="media.Media.data.attributes.url" v-if="media.Media.data.attributes.ext === '.mp4' && media.autoplay === true" class="media-animation"></video>
+    <video v-if="media.Poster.data != null" ref="videoPlayer" class="vjs-matrix video-js " :poster=media.Poster.data.attributes.url></video>
+    <video v-if="media.Poster.data === null" ref="videoPlayer" class="vjs-matrix video-js "></video>
+    <!-- <video ref="videoPlayer" controls :src="media.Media.data.attributes.url" v-if="media.Media.data.attributes.ext === '.mp4' && media.autoplay != true && media.Poster.data === null" class="media-animation"></video>
+    <video ref="videoPlayer" controls :src="media.Media.data.attributes.url" v-if="media.Media.data.attributes.ext === '.mp4' && media.autoplay != true && media.Poster.data != null" class="media-animation" :poster="media.Poster.data.attributes.url"></video>
+    <video ref="videoPlayer" autoplay playsinline controls loop controlsList="nodownload" :src="media.Media.data.attributes.url" v-if="media.Media.data.attributes.ext === '.mp4' && media.autoplay === true" class="media-animation"></video> -->
     <img :src="media.Media.data.attributes.url" v-if="media.Media.data.attributes.ext === '.jpg' || media.Media.data.attributes.ext === '.png'" class="media-animation">
   </div>
   <div v-if="media.Leyenda !== null" class="legend">{{ media.Leyenda }}</div>
@@ -89,13 +102,15 @@ export default {
 
 .vjs-matrix.video-js {
   color: white;
+  width: 100%;
   height: 100%;
   @apply
   flex
   items-center
   justify-center;
   & > video {
-    height: auto;
+    @apply
+    object-cover;
   }
   .vjs-tech {
     @apply
@@ -103,9 +118,36 @@ export default {
   }
 }
 
+.vjs-poster {
+  @apply
+  flex
+  justify-center
+  items-center;
+  img {
+    @apply
+    h-full
+    w-full
+    object-cover;
+  }
+}
+
 /* Change the border of the big play button. */
-.vjs-matrix .vjs-big-play-button {
-  border-color: white;
+.vjs-matrix.vjs-paused .vjs-big-play-button {
+  border: none;
+  @apply
+  top-0
+  left-0
+  flex
+  items-center
+  justify-center
+  w-full
+  h-full
+  border-none
+  bg-transparent;
+  &:hover {
+    @apply
+    bg-transparent;
+  }
 }
 
 .vjs-matrix .vjs-control-bar {
@@ -116,6 +158,11 @@ export default {
 .vjs-matrix .vjs-play-progress,
 .vjs-matrix .vjs-slider-bar {
   background: white;
+}
+
+.video-js .vjs-big-play-button .vjs-icon-placeholder:before {
+  @apply
+  relative;
 }
 
 </style>
