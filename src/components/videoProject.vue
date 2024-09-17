@@ -111,6 +111,9 @@ export default {
   & > video {
     @apply
     object-cover;
+    @media screen and (max-width: 768px) {
+      object-fit: contain;
+    }
   }
   .vjs-tech {
     @apply
