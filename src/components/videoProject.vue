@@ -1,6 +1,6 @@
 <script>
 import { gsap } from "gsap";
-import videojs from 'video.js';
+// import videojs from 'video.js';
 
 export default {
   name: 'videoProject',
@@ -14,16 +14,16 @@ export default {
   },
   mounted() {
     this.animateVideos();
-    this.player = videojs(this.$refs.videoPlayer, {
-      controls: true,
-      autoplay: this.media.autoplay,
-      preload: 'none',
-      loop: true,
-      sources: [{
-        src: this.media.Media.data.attributes.url,
-        type: 'video/mp4'
-      }]
-    });
+    // this.player = videojs(this.$refs.videoPlayer, {
+    //   controls: true,
+    //   autoplay: this.media.autoplay,
+    //   preload: 'none',
+    //   loop: true,
+    //   sources: [{
+    //     src: this.media.Media.data.attributes.url,
+    //     type: 'video/mp4'
+    //   }]
+    // });
   },
   methods: {
     animateVideos() {

@@ -19,17 +19,35 @@ export default {
     animateLoading() {
       const tl = gsap.timeline({ repeat: -1});
 
-      const loadingBar = document.querySelector(".loading-bar");
+      const loadingName = document.querySelector(".loading-wrapper p");
 
-      tl.to(loadingBar, {
-        width: "100%",
+      gsap.set(loadingName, {
+        yPercent: 100
+      })
+      tl.to(loadingName, {
+        yPercent: 0,
+        ease: "power1.out"
+      }).to(loadingName, {
+        autoAlpha: .6,
         duration: 1,
         ease: "power1.out"
-      }).to(loadingBar, {
-        width: "0%",
+      }).to(loadingName, {
+        autoAlpha: 1,
         duration: 1,
         ease: "power1.out"
       })
+
+      // const loadingBar = document.querySelector(".loading-bar");
+
+      // tl.to(loadingBar, {
+      //   width: "100%",
+      //   duration: 1,
+      //   ease: "power1.out"
+      // }).to(loadingBar, {
+      //   width: "0%",
+      //   duration: 1,
+      //   ease: "power1.out"
+      // })
     }
   }
 }
@@ -38,7 +56,8 @@ export default {
 <template>
   <div class="loading">
     <div class="loading-wrapper">
-      <div class="loading-bar"></div>
+      <p>Pol Renau Wehr</p>
+      <!-- <div class="loading-bar"></div> -->
     </div>
   </div>
 </template>
@@ -72,6 +91,7 @@ export default {
     .loading-wrapper {
       width: 100%;
       @apply
+      overflow-hidden
       flex
       justify-center
       items-center;
@@ -83,6 +103,11 @@ export default {
       .loading-bar {
         @apply
         bg-white;
+      }
+
+      p {
+        @apply
+        text-white;
       }
     }
 

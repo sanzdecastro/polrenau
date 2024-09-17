@@ -43,15 +43,14 @@ export default {
 }
 </script>
 
-<template :class="loading ? 'loading' : 'loaded'">
-  <header :class="this.whiteHeader ? 'white' : ''">
+<template :class="loading ? 'loading' : ''">
+  <header :class="{ white: whiteHeader, 'loadingHeader': loading, 'loaded': !loading }">
     <h1><RouterLink :to="{ name: 'home' }">Pol Renau Wehr</RouterLink></h1>
       <nav>
         <RouterLink :to="{ name: 'home' }" :key="name">Projects</RouterLink>
         <RouterLink :to="{ name: 'services' }" :key="name">Services</RouterLink>
         <RouterLink :to="{ name: 'about' }" :key="name">About</RouterLink>
       </nav>
-   
   </header>
 
   <Intro v-if="!visited"/>
@@ -72,6 +71,18 @@ export default {
 </template>
 
 <style>
+
+header {
+  transition: all .6s ease-in-out;
+  transition-delay: 0ms;
+  opacity: 1;
+}
+
+header.loadingHeader {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity .8s ease-in-out;
