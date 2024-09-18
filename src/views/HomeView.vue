@@ -19,21 +19,49 @@ export default {
         const apiUrl = import.meta.env.VITE_STRAPI_URL;
         const authToken = import.meta.env.VITE_AUTH_TOKEN;
         this.fetchData(apiUrl, authToken);
+        
         console.log(this.loading);
   },
   methods: {
         ...mapActions(useStore, ['fetchData', 'getClass']),
+        animateTitles(){
+          var tl = gsap.timeline({})
+
+          const title = document.querySelectorAll("h2");
+          const client = document.querySelectorAll(".client");
+
+          gsap.set(title, {
+            xPercent: -10,
+            autoAlpha: 0,
+          })
+
+          gsap.set(client, {
+            xPercent: -10,
+            autoAlpha: 0,
+          })
+
+          tl.to(title, {
+            delay: .5,
+            xPercent: 0,
+            autoAlpha: 1,
+            ease: "power1.out"
+          }).to(client, {
+            xPercent: 0,
+            autoAlpha: 1,
+            ease: "power1.out"
+          }, "<25%")
+        }
   },
   
   watch: {
-      // loading(value) {
-      //   if (!value) {
-      //     // La variable cambió a false
-      //     this.$nextTick(() => {
-      //       this.animateVideos();
-      //     });
-      //   }
-      // }
+      loading(value) {
+        if (!value) {
+          // La variable cambió a false
+          this.$nextTick(() => {
+            this.animateTitles();
+          });
+        }
+      }
   },
 }
 </script>
@@ -109,6 +137,9 @@ export default {
   .project-details {
     @apply
     text-nowrap;
+    h2 {
+      
+    }
     .client {
       @apply
       text-gray-400;

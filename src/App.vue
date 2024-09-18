@@ -1,6 +1,5 @@
 <script>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 import { mapState } from 'pinia';
 import { mapActions } from 'pinia';
 import { useStore } from '@/stores/fetchStore.js';
@@ -16,14 +15,17 @@ export default {
     Loading
   },
   computed: {
-    ...mapState(useStore, ['loading', 'whiteHeader', 'visited'])
+    ...mapState(useStore, ['loading', 'whiteHeader', 'visited', 'settings'])
   },
   created() {
+    const apiUrl = import.meta.env.VITE_STRAPI_URL;
+    const authToken = import.meta.env.VITE_AUTH_TOKEN;
+    this.fetchSettings(apiUrl, authToken);
     this.Lenis();
     this.storage();
   },
   methods: {
-    ...mapActions(useStore, ['storage']),
+    ...mapActions(useStore, ['storage', 'fetchSettings']),
 
     Lenis() {
       const lenis = new Lenis()
@@ -47,9 +49,9 @@ export default {
   <header :class="{ white: whiteHeader, 'loadingHeader': loading, 'loaded': !loading }">
     <h1><RouterLink :to="{ name: 'home' }">Pol Renau Wehr</RouterLink></h1>
       <nav>
-        <RouterLink :to="{ name: 'home' }" :key="name">Projects</RouterLink>
-        <RouterLink :to="{ name: 'services' }" :key="name">Services</RouterLink>
-        <RouterLink :to="{ name: 'about' }" :key="name">About</RouterLink>
+        <RouterLink to="/home" >{{ settings.Projects }}</RouterLink>
+        <RouterLink to="/services" >{{ settings.Services }}</RouterLink>
+        <RouterLink to="/about" > {{ settings.About }}</RouterLink>
       </nav>
   </header>
 

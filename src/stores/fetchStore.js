@@ -6,6 +6,7 @@ export const useStore = defineStore('apiStore', {
         visited: false,
         whiteHeader: false,
         data: [],
+        settings: [],
       }),
       getters: {
       },
@@ -137,6 +138,29 @@ export const useStore = defineStore('apiStore', {
                 // console.log(this.loading)
                 this.loading = false;
                 console.log(this.loading)
+              }
+        },
+
+        async fetchSettings(apiUrl, authToken) {
+          this.loading = true;
+          console.log(this.loading)
+            try {
+                const response = await fetch(`${apiUrl}/api/setting` , {
+                    headers: {
+                        Authorization: `Bearer ${authToken}`,
+                    },
+                });
+                let settings = await response.json();
+                this.settings = settings.data.attributes;
+                
+               
+              }
+              catch(error) {
+                console.log(error);
+              }
+              finally {
+                console.log(this.settings);
+                console.log("done")
               }
         },
 
