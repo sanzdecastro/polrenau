@@ -49,7 +49,7 @@ export default {
   <header :class="{ white: whiteHeader, 'loadingHeader': loading, 'loaded': !loading }">
     <h1><RouterLink :to="{ name: 'home' }">Pol Renau Wehr</RouterLink></h1>
       <nav>
-        <RouterLink to="/home" >{{ settings.Projects }}</RouterLink>
+        <RouterLink to="/" >{{ settings.Projects }}</RouterLink>
         <RouterLink to="/services" >{{ settings.Services }}</RouterLink>
         <RouterLink to="/about" > {{ settings.About }}</RouterLink>
       </nav>
