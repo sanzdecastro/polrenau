@@ -36,7 +36,7 @@ export default {
 </script>
 
 <template>
-  <div class="media-container" :class="thumbnail.AspectRatio ? thumbnail.AspectRatio : aspectRatio">
+  <div class="media-container pointer-events-none" :class="thumbnail.AspectRatio ? thumbnail.AspectRatio : aspectRatio">
     <video loop muted autoplay :src="thumbnail.Media.data.attributes.url" v-if="thumbnail.Media.data.attributes.ext === '.mp4'" class="media-animation"></video>
     <img :src="thumbnail.Media.data.attributes.url" v-if="thumbnail.Media.data.attributes.ext === '.jpg' || thumbnail.Media.data.attributes.ext === '.png'" class="media-animation">
   </div>
