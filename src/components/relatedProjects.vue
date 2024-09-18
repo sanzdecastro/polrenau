@@ -18,7 +18,7 @@ export default {
 <template>
 
     <div class="related-projects">
-      <span class="title">Related projects</span>
+      <span class="related-projects_title">Related projects</span>
       <div v-for="related in related.data" class="related-projects_related">
         
         <router-link  :to="`${related.attributes.slug}` " :key="related.attributes.slug">
@@ -46,12 +46,12 @@ export default {
 
 <style>
 .related-projects {
-  .title {
+  .related-projects_title {
     padding-top: calc(34 * var(--r));
     @apply
-    inline-block
-    !col-start-4
-    !col-span-11;
+    !col-start-1
+    md:!col-start-4
+    col-end-7;
   }
   .project-details {
     @apply

@@ -14,7 +14,8 @@ export default {
   },
   mounted() {
     this.animateVideos();
-    this.player = videojs(this.$refs.videoPlayer, {
+    this.$nextTick(() => {
+      this.player = videojs(this.$refs.videoPlayer, {
       controls: true,
       autoplay: this.media.autoplay,
       preload: 'none',
@@ -24,6 +25,13 @@ export default {
         type: 'video/mp4'
       }]
     });
+    })
+    
+  },
+  destroyed() {
+    if (this.player) {
+      this.player.dispose();
+    }
   },
   methods: {
     animateVideos() {
@@ -52,26 +60,27 @@ export default {
             duration: 0.4,
           },'<');
         },
+        playVideo() {
+      if (this.player) {
+        this.player.play();
+      }
+    },
+
+    pauseVideo() {
+      if (this.player) {
+        this.player.pause();
+      }
+    }
   },
-  removeControls() {
-    var video = document.querySelector('video');
-  
-  video.addEventListener('play', function() {
-    video.setAttribute('controls', '');
-  });
-  
-  video.addEventListener('pause', function() {
-    video.removeAttribute('controls');
-  });
-  }
+
 }
 </script>
 
 <template>
   
   <div class="media-container" :class="media.AspectRatio">
-    <video v-if="media.Poster.data != null" ref="videoPlayer" class="vjs-matrix video-js " :poster=media.Poster.data.attributes.url></video>
-    <video v-if="media.Poster.data === null" ref="videoPlayer" class="vjs-matrix video-js "></video>
+    <video v-if="media.Poster.data !== null && media.Media.data.attributes.ext === '.mp4'" ref="videoPlayer" class="vjs-matrix video-js " :poster=media.Poster.data.attributes.url></video>
+    <video v-if="media.Poster.data === null && media.Media.data.attributes.ext === '.mp4'" ref="videoPlayer" class="vjs-matrix video-js "></video>
     <!-- <video ref="videoPlayer" controls :src="media.Media.data.attributes.url" v-if="media.Media.data.attributes.ext === '.mp4' && media.autoplay != true && media.Poster.data === null" class="media-animation"></video>
     <video ref="videoPlayer" controls :src="media.Media.data.attributes.url" v-if="media.Media.data.attributes.ext === '.mp4' && media.autoplay != true && media.Poster.data != null" class="media-animation" :poster="media.Poster.data.attributes.url"></video>
     <video ref="videoPlayer" autoplay playsinline controls loop controlsList="nodownload" :src="media.Media.data.attributes.url" v-if="media.Media.data.attributes.ext === '.mp4' && media.autoplay === true" class="media-animation"></video> -->

@@ -136,7 +136,7 @@ export default {
                   media.Columns === 'col12' ? 'col-span-full md:col-span-12' : 
                   media.Columns === 'col13' ? 'col-span-full md:col-span-13' : '' ">
 
-                  <videoProject :media="media"/>
+                  <videoProject :media="media" :key="media.id"/>
 
               </div>
             </div>
@@ -211,7 +211,8 @@ export default {
     @apply
     bg-slate-50
     grid
-    grid-cols-13
+    grid-cols-6
+    md:grid-cols-13
     gap-0;
 
     & > div {
@@ -221,8 +222,13 @@ export default {
 
   .project-info_title {
     @apply 
-    col-start-2
-    col-end-4;
+    order-1
+    md:order-none
+    col-start-1
+    col-end-6
+    
+    md:col-start-2
+    md:col-end-4;
     p {
       @apply
       text-gray-400;
@@ -231,8 +237,11 @@ export default {
 
   .project-info_desc {
     @apply 
-    col-start-4
-    col-end-8;
+    order-3
+    md:order-none
+    col-span-full
+    md:col-start-4
+    md:col-end-8;
     p {
      
       padding-bottom: calc(76 * var(--r));
@@ -242,6 +251,8 @@ export default {
 
   .project-info_year {
     @apply 
+    order-2
+    md:order-none
     text-right
     col-start-8
     col-end-8;
@@ -252,8 +263,12 @@ export default {
     grid
     grid-cols-3
     gap-3
-    col-start-4
-    col-span-11;
+    order-4
+    md:order-none
+    col-start-1
+    col-span-7
+    md:col-start-4
+    md:col-span-11;
     padding-bottom: calc(76 * var(--r));
   }
 
@@ -269,26 +284,40 @@ export default {
 
   .related-projects {
     min-height: 100vh;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: max-content;
     @apply 
-    flex
+    order-5
+    md:order-none
+    col-start-1
+    col-span-8
+    grid
+    
     bg-gray-200
     gap-3
-    col-start-1
-    col-span-13
-    grid
-    grid-cols-13;
+    md:col-start-1
+    md:col-span-13
+    md:grid
+    md:grid-cols-13;
+
+   
   }
 
   .related-projects :nth-child(even) {
     @apply
-    col-start-4
-    col-span-5;
+    col-start-1
+    col-end-4
+    md:col-start-4
+    md:col-span-5;
   }
 
   .related-projects :nth-child(odd) {
     @apply
-    col-start-9
-    col-span-5;
+    col-start-4
+    
+    col-end-7
+    md:col-start-9
+    md:col-span-5;
   }
 
   .view + footer {
