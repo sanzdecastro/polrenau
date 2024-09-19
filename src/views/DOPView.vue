@@ -41,7 +41,7 @@ export default {
 
 <template>
     
-  <main class="project-loop">
+  <main class="project-loop dop">
     
     <div v-for="project in data.data" :key="project.id" 
       :class="getClass(project.attributes.Preview)">
