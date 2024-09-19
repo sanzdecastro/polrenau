@@ -89,7 +89,7 @@ export default {
     left-0;
 
     .loading-wrapper {
-      width: 100%;
+      width: 100vw;
       @apply
       overflow-hidden
       flex

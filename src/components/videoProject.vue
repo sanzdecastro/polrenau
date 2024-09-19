@@ -13,8 +13,10 @@ export default {
     }
   },
   mounted() {
-    this.animateVideos();
     this.$nextTick(() => {
+      setTimeout(() => {
+        this.animateVideos();
+      }, 300);
       this.player = videojs(this.$refs.videoPlayer, {
       controls: true,
       autoplay: this.media.autoplay,
@@ -79,8 +81,8 @@ export default {
 <template>
   
   <div class="media-container" :class="media.AspectRatio">
-    <video v-if="media.Poster.data !== null && media.Media.data.attributes.ext === '.mp4'" ref="videoPlayer" class="vjs-matrix video-js " :poster=media.Poster.data.attributes.url playsinline></video>
-    <video v-if="media.Poster.data === null && media.Media.data.attributes.ext === '.mp4'" ref="videoPlayer" class="vjs-matrix video-js "></video>
+    <video v-if="media.Poster.data !== null && media.Media.data.attributes.ext === '.mp4'" ref="videoPlayer" class="vjs-matrix video-js media-animation" :poster=media.Poster.data.attributes.url playsinline></video>
+    <video v-if="media.Poster.data === null && media.Media.data.attributes.ext === '.mp4'" ref="videoPlayer" class="vjs-matrix video-js media-animation"></video>
     <!-- <video ref="videoPlayer" controls :src="media.Media.data.attributes.url" v-if="media.Media.data.attributes.ext === '.mp4' && media.autoplay != true && media.Poster.data === null" class="media-animation"></video>
     <video ref="videoPlayer" controls :src="media.Media.data.attributes.url" v-if="media.Media.data.attributes.ext === '.mp4' && media.autoplay != true && media.Poster.data != null" class="media-animation" :poster="media.Poster.data.attributes.url"></video>
     <video ref="videoPlayer" autoplay playsinline controls loop controlsList="nodownload" :src="media.Media.data.attributes.url" v-if="media.Media.data.attributes.ext === '.mp4' && media.autoplay === true" class="media-animation"></video> -->

@@ -15,17 +15,18 @@ export default {
     Loading
   },
   computed: {
-    ...mapState(useStore, ['loading', 'whiteHeader', 'visited', 'settings'])
+    ...mapState(useStore, ['loading', 'whiteHeader', 'visited', 'settings', 'data'])
   },
-  created() {
+  async created() {
     const apiUrl = import.meta.env.VITE_STRAPI_URL;
     const authToken = import.meta.env.VITE_AUTH_TOKEN;
     this.fetchSettings(apiUrl, authToken);
     this.Lenis();
     this.storage();
+    
   },
   methods: {
-    ...mapActions(useStore, ['storage', 'fetchSettings']),
+    ...mapActions(useStore, ['storage', 'fetchSettings', 'fetchCategory', 'fetchData']),
 
     Lenis() {
       const lenis = new Lenis()

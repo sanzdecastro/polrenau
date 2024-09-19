@@ -6,6 +6,7 @@ export const useStore = defineStore('apiStore', {
         visited: false,
         whiteHeader: false,
         data: [],
+        project: {},
         settings: [],
       }),
       getters: {
@@ -47,15 +48,15 @@ export const useStore = defineStore('apiStore', {
                     Authorization: `Bearer ${authToken}`,
                 },
             });
-            let data = await response.json();
-            this.data = data.data[0].attributes;
+            let project = await response.json();
+            this.project = project.data[0].attributes;
 
           }
           catch(error) {
             console.log(error);
           }
           finally {
-            console.log(this.data);
+            console.log(this.project);
             console.log("done")
             // console.log(this.loading)
             this.loading = false;
@@ -184,6 +185,13 @@ export const useStore = defineStore('apiStore', {
             this.visited = true
               console.log("Ya has visitado esta página antes.");
           }
+        },
+
+        async getRandomRelated(apiUrl, authToken) {
+          this.fetchData(apiUrl, authToken);
+          console.log(this.data)
+          const randomIndex = Math.floor(Math.random() * this.data.length);
+          console.log(this.data[randomIndex]);
         },
 
         getClass(view) {

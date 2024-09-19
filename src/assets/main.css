@@ -20,6 +20,8 @@ body {
   font-weight: 400;
   font-style: normal;
   font-size: max(14 * var(--r), 14px);
+  width: 100vw;
+  overflow: hidden;
   @apply
   bg-slate-50;
 }
@@ -117,6 +119,10 @@ main.project-loop, main.services-page, .project-media, .about {
   justify-center
   items-center
   relative;
+  .media-animation {
+    @apply
+    opacity-0;
+  }
 }
 
 .media-container video {

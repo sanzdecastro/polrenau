@@ -19,12 +19,12 @@ export default {
     relatedProjects
   },
   computed: {
-        ...mapState(useStore, ['loading','data']),
+        ...mapState(useStore, ['loading','data', 'project']),
 
         projectViewClasses() {
           // Verifica si los datos necesarios están presentes antes de llamar a getClass
-          if (this.data && this.data.View) {
-            return this.getClass(this.data.View);
+          if (this.project && this.project.View) {
+            return this.getClass(this.project.View);
           }
           return ''; // Devuelve una cadena vacía o una clase predeterminada si los datos no están disponibles
         }
@@ -39,7 +39,7 @@ export default {
     const authToken = import.meta.env.VITE_AUTH_TOKEN;
     this.fetchProject(apiUrl, authToken, this.$route.params.title);
     this.toTop();
-    },
+  },
   methods: {
       ...mapActions(useStore, ['fetchProject', 'getClass', 'setIsInInfoRoute', 'toTop']),
         
@@ -83,6 +83,20 @@ export default {
           },
         });
       },
+      printRandomRelated(arr) {
+        if (arr.length < 2) {
+          return 'No hay suficientes elementos para seleccionar dos.';
+        }
+
+        const indice1 = Math.floor(Math.random() * arr.length);
+        const indice2 = Math.floor(Math.random() * arr.length);
+
+        while (indice1 === indice2) {
+          indice2 = Math.floor(Math.random() * arr.length);
+        }
+
+        return `${JSON.stringify(arr[indice1])}, ${JSON.stringify(arr[indice2])}`;
+    }
   },
   watch: {
     loading(value) {
@@ -104,24 +118,24 @@ export default {
 <template>
 
   <main class="view">
-    <section class="project-view" :class="{ 'only-one': data.View && data.View.GridView && data.View.GridView.length === 1 }">
+    <section class="project-view" :class="{ 'only-one': project.View && project.View.GridView && project.View.GridView.length === 1 }">
      
         <div class="project-media flex md:grid"  :class="
-          getViewColumns(data.View) === 'col1' ? 'md:grid-cols-1' :
-          getViewColumns(data.View) === 'col2' ? 'md:grid-cols-2' : 
-          getViewColumns(data.View) === 'col3' ? 'md:grid-cols-3' : 
-          getViewColumns(data.View) === 'col4' ? 'md:grid-cols-4' : 
-          getViewColumns(data.View) === 'col5' ? 'md:grid-cols-5' : 
-          getViewColumns(data.View) === 'col6' ? 'md:grid-cols-6' : 
-          getViewColumns(data.View) === 'col7' ? 'md:grid-cols-7' : 
-          getViewColumns(data.View) === 'col8' ? 'md:grid-cols-8' : 
-          getViewColumns(data.View) === 'col9' ? 'md:grid-cols-9' : 
-          getViewColumns(data.View) === 'col10' ? 'md:grid-cols-10' : 
-          getViewColumns(data.View) === 'col11' ? 'md:grid-cols-11' : 
-          getViewColumns(data.View) === 'col12' ? 'md:grid-cols-12' : 
-          getViewColumns(data.View) === 'col13' ? 'md:grid-cols-13' : '' ">
+          getViewColumns(project.View) === 'col1' ? 'md:grid-cols-1' :
+          getViewColumns(project.View) === 'col2' ? 'md:grid-cols-2' : 
+          getViewColumns(project.View) === 'col3' ? 'md:grid-cols-3' : 
+          getViewColumns(project.View) === 'col4' ? 'md:grid-cols-4' : 
+          getViewColumns(project.View) === 'col5' ? 'md:grid-cols-5' : 
+          getViewColumns(project.View) === 'col6' ? 'md:grid-cols-6' : 
+          getViewColumns(project.View) === 'col7' ? 'md:grid-cols-7' : 
+          getViewColumns(project.View) === 'col8' ? 'md:grid-cols-8' : 
+          getViewColumns(project.View) === 'col9' ? 'md:grid-cols-9' : 
+          getViewColumns(project.View) === 'col10' ? 'md:grid-cols-10' : 
+          getViewColumns(project.View) === 'col11' ? 'md:grid-cols-11' : 
+          getViewColumns(project.View) === 'col12' ? 'md:grid-cols-12' : 
+          getViewColumns(project.View) === 'col13' ? 'md:grid-cols-13' : '' ">
             <div class="grid media-section" :class="projectViewClasses">
-              <div v-for="media in getViewMedia(data.View)" :class="
+              <div v-for="media in getViewMedia(project.View)" :class="
                   media.Columns === 'col1' ? 'col-span-full md:col-span-1' :
                   media.Columns === 'col2' ? 'col-span-full md:col-span-2' : 
                   media.Columns === 'col3' ? 'col-span-full md:col-span-3' : 
@@ -144,22 +158,25 @@ export default {
         <div class="project-info">
 
           <div class="project-info_title">
-            <h1>{{data.Titulo}}</h1>
-            <p>{{data.Client}}</p>
+            <h1>{{project.Titulo}}</h1>
+            <p>{{project.Client}}</p>
           </div>
 
           <div class="project-info_desc">
-            <p>{{data.Description}}</p>
+            <p>{{project.Description}}</p>
           </div>
 
           <div class="project-info_year">
-            <p>{{data.Year}}</p>
+            <p>{{project.Year}}</p>
           </div>
 
-          <screenshots v-if="data.Screenshots && data.Screenshots.data !== null" :screenshot="data.Screenshots"/>
+          <screenshots v-if="project.Screenshots && project.Screenshots.data !== null" :screenshot="project.Screenshots"/>
             
-          <relatedProjects v-if="data.Related && data.Related.data.length !== 0" :related="data.Related"/>
+          <relatedProjects v-if="project.Related && project.Related.data.length !== 0" :related="project.Related"/>
           
+          <div v-else>
+           
+          </div>
         </div>
 
   </section>
@@ -243,7 +260,7 @@ export default {
     md:col-start-4
     md:col-end-8;
     p {
-     
+      white-space: pre-line;
       padding-bottom: calc(76 * var(--r));
       
     }

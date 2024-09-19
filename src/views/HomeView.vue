@@ -19,11 +19,12 @@ export default {
         const apiUrl = import.meta.env.VITE_STRAPI_URL;
         const authToken = import.meta.env.VITE_AUTH_TOKEN;
         this.fetchData(apiUrl, authToken);
-        
+        this.toTop();
         console.log(this.loading);
   },
   methods: {
-        ...mapActions(useStore, ['fetchData', 'getClass']),
+        ...mapActions(useStore, ['fetchData', 'getClass', 'toTop']),
+        
         animateTitles(){
           var tl = gsap.timeline({})
 
@@ -70,7 +71,7 @@ export default {
     
   <main class="project-loop">
     
-    <div v-for="project in data.data" :key="project.id" 
+    <div v-for="project in data.data"  :key="project.id" 
       :class="getClass(project.attributes.Preview)">
       <router-link  :to="`${project.attributes.slug}` ">
       <div class="grid" :class="
@@ -103,11 +104,8 @@ export default {
           thumbnail.Columns === 'col12' ? 'col-span-12' : 
           thumbnail.Columns === 'col13' ? 'col-span-13' : '' ">
           
-          <!-- <div class="media-container" :class="thumbnail.AspectRatio">
-            <video loop controls :src="thumbnail.Media.data.attributes.url" v-if="thumbnail.Media.data.attributes.ext === '.mp4'" class="video-animation"></video>
-            <img :src="thumbnail.Media.data.attributes.url" v-if="thumbnail.Media.data.attributes.ext === '.jpg' || thumbnail.Media.data.attributes.ext === '.png'">
-          </div> -->
-          <videoPreview :thumbnail="thumbnail"/>
+
+          <videoPreview :thumbnail="thumbnail" :key="thumbnail.id"/>
           
         </div>
         

@@ -19,10 +19,11 @@ export default {
         const apiUrl = import.meta.env.VITE_STRAPI_URL;
         const authToken = import.meta.env.VITE_AUTH_TOKEN;
         this.fetchCategory(apiUrl, authToken, "dop");
+        this.toTop();
         console.log(this.loading);
   },
   methods: {
-        ...mapActions(useStore, ['fetchCategory', 'getClass']),
+        ...mapActions(useStore, ['fetchCategory', 'getClass', 'toTop']),
   },
   
   watch: {

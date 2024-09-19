@@ -1,14 +1,18 @@
 <script>
 import { gsap } from "gsap";
+import { mapState } from 'pinia';
+import { useStore } from '@/stores/fetchStore.js';
 
 export default {
   name: 'videoPreview',
   props: {
-    thumbnail: Object,
-    aspectRatio: String
+    thumbnail: Object
   },
-  mounted() {
-    this.animateVideos()
+  mounted() { 
+    this.animateVideos();
+  },
+  computed: {
+        ...mapState(useStore, ['loading'])
   },
   methods: {
     animateVideos() {
@@ -31,14 +35,22 @@ export default {
             duration: 0.8,
           });
         }
+  },
+  watch: {
+      loading(value) {
+        if (!value) {
+          // La variable cambió a false
+            this.animateVideos();
+        }
+      }
   }
 }
 </script>
 
 <template>
   <div class="media-container pointer-events-none" :class="thumbnail.AspectRatio ? thumbnail.AspectRatio : aspectRatio">
-    <video loop muted autoplay playsinline :src="thumbnail.Media.data.attributes.url" v-if="thumbnail.Media.data.attributes.ext === '.mp4'" class="media-animation"></video>
-    <img :src="thumbnail.Media.data.attributes.url" v-if="thumbnail.Media.data.attributes.ext === '.jpg' || thumbnail.Media.data.attributes.ext === '.png'" class="media-animation">
+    <video class="media-animation" loop muted autoplay playsinline :src="thumbnail.Media.data.attributes.url" v-if="thumbnail.Media.data.attributes.ext === '.mp4'" ></video>
+    <img class="media-animation" :src="thumbnail.Media.data.attributes.url" v-if="thumbnail.Media.data.attributes.ext === '.jpg' || thumbnail.Media.data.attributes.ext === '.png'" >
   </div>
 </template>
 

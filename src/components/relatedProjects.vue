@@ -22,9 +22,9 @@ export default {
       <div v-for="related in related.data" class="related-projects_related">
         
         <router-link  :to="`${related.attributes.slug}` " :key="related.attributes.slug">
-          <div class="media-container" >
+          <div class="media-container" :class="related.attributes.Preview.Media[0].AspectRatio">
           
-            <video loop muted autoplay 
+            <video loop muted autoplay playsinline
               :src="related.attributes.Preview.Media[0].Media.data.attributes.url" 
               v-if="related.attributes.Preview.Media[0].Media.data.attributes.ext === '.mp4'">
             </video>
