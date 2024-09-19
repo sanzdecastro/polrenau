@@ -21,7 +21,6 @@ body {
   font-style: normal;
   font-size: max(14 * var(--r), 14px);
   width: 100vw;
-  overflow: hidden;
   @apply
   bg-slate-50;
 }
