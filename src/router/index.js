@@ -10,7 +10,7 @@ import { useStore } from '@/stores/fetchStore.js';
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import videojs from 'video.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,6 +23,7 @@ const router = createRouter({
       component: HomeView,
       beforeEnter: (to, from, next) => {
         ScrollTrigger.killAll();
+        
         const store = useStore() // Usa tu tienda
         store.setIsInInfoRoute(false)
         next()
@@ -36,7 +37,7 @@ const router = createRouter({
         const store = useStore() // Usa tu tienda
         store.setIsInInfoRoute(true)
         next()
-      }
+      },
     },
     {
       path: '/about',

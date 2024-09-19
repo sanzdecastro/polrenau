@@ -58,7 +58,7 @@ export default {
 
   <Intro v-if="!visited"/>
   <Loading v-if="loading" :class="this.whiteHeader ? 'white' : ''"></Loading>
-  <router-view :key="$route.params.title" v-slot="{ Component }">
+  <router-view :key="$route.params.title" v-slot="{ Component }" >
     <!-- :key="$route.fullPath" -->
     <transition name="fade" mode="out-in">
       <component :is="Component" />

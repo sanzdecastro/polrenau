@@ -150,7 +150,7 @@ export default {
                   media.Columns === 'col12' ? 'col-span-full md:col-span-12' : 
                   media.Columns === 'col13' ? 'col-span-full md:col-span-13' : '' ">
 
-                  <videoProject :media="media" :key="media.id"/>
+                  <videoProject v-if="!loading" :media="media" :key="media.id"/>
 
               </div>
             </div>

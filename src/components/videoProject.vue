@@ -13,6 +13,7 @@ export default {
     }
   },
   mounted() {
+    
     this.$nextTick(() => {
       setTimeout(() => {
         this.animateVideos();
@@ -30,7 +31,7 @@ export default {
     })
     
   },
-  destroyed() {
+  beforeDestroy() {
     if (this.player) {
       this.player.dispose();
     }
