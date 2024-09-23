@@ -128,11 +128,21 @@ export default {
 
 <style>
   .project-loop {
+    width: 100vw;
+
     @apply
+    overflow-hidden
     grid
     gap-3
     grid-cols-6
     md:grid-cols-13;
+    a {
+      @apply
+      block
+      mb-14
+      
+      md:mb-0;
+    }
   }
   .grid {
     @apply
@@ -140,6 +150,8 @@ export default {
   }
   .project-details {
     @apply
+    pl-1
+    md:pl-1
     text-nowrap;
     h2 {
       

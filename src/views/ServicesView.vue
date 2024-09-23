@@ -175,38 +175,38 @@ export default {
       z-10;
      }
       .swiper-slide {
-      @apply
-      cursor-grab
-      flex
-      flex-col
-      justify-center
-      gap-1;
-      .link {
         @apply
-        bg-slate-50
-        text-gray-400;
-        &:hover, &:active {
+        cursor-grab
+        flex
+        flex-col
+        justify-center
+        gap-1;
+        .link {
           @apply
-          text-blue-700;
+          bg-slate-50
+          text-gray-400;
+          &:hover, &:active {
+            @apply
+            text-blue-700;
+          }
         }
-      }
-      .media-container {
-        margin-bottom: calc( 4 * var(--r));
+        .media-container {
+          margin-bottom: calc( 4 * var(--r));
 
-       
-        img {
-         @apply
-         w-full
-         h-full
-         object-cover;
-        }
-        video {
+        
+          img {
           @apply
-          max-w-none
-          w-full;
+          w-full
+          h-full
+          object-cover;
+          }
+          video {
+            @apply
+            max-w-none
+            w-full;
+          }
         }
-      }
-    } 
+      } 
     }
     
   }

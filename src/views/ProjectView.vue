@@ -240,6 +240,8 @@ export default {
 
   .project-info_title {
     @apply 
+    mb-10
+    md:mb-0
     order-1
     md:order-none
     col-start-1
@@ -255,6 +257,8 @@ export default {
 
   .project-info_desc {
     @apply 
+    mb-10
+    md:mb-0
     order-3
     md:order-none
     col-span-full
@@ -276,32 +280,10 @@ export default {
     col-end-8;
   }
 
-  .project-info .project-info_screenshots {
-    @apply 
-    grid
-    grid-cols-3
-    gap-3
-    order-4
-    md:order-none
-    col-start-1
-    col-span-7
-    md:col-start-4
-    md:col-span-11;
-    padding-bottom: calc(76 * var(--r));
-  }
 
-  .project-info_screenshots p{
-    @apply 
-    col-span-full;
-  }
-
-  .project-info_screenshots .screenshot{
-    @apply 
-    w-full;
-  }
 
   .related-projects {
-    min-height: 100vh;
+    min-height: 85vh;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: max-content;
     @apply 

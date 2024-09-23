@@ -46,6 +46,7 @@ export default {
 
 <style>
 .related-projects {
+
   .related-projects_title {
     padding-top: calc(34 * var(--r));
     @apply
