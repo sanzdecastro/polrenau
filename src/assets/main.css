@@ -144,3 +144,8 @@ main.project-loop, main.services-page, .project-media, .about {
   @apply
   aspect-3/4;
 }
+
+a.router-link-active {
+  @apply
+  text-black;
+}

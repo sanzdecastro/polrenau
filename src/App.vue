@@ -79,6 +79,10 @@ header {
   transition: all .6s ease-in-out;
   transition-delay: 0ms;
   opacity: 1;
+  a {
+    @apply
+    text-gray-400;
+  }
 }
 
 header.loadingHeader {

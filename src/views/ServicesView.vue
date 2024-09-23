@@ -7,9 +7,10 @@ import { data } from 'autoprefixer';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Pagination, EffectFade, Autoplay } from 'swiper/modules';
+import { Pagination, Navigation, EffectFade, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import videoPreview from '@/components/videoPreview.vue';
 
 export default {
@@ -24,7 +25,7 @@ export default {
   },
   setup() {
       return {
-        modules: [Pagination, EffectFade, Autoplay],
+        modules: [Pagination, EffectFade, Autoplay, Navigation],
       };
     },
   data() {
@@ -109,6 +110,7 @@ export default {
             :pagination="{
               type: 'fraction',
             }"
+            :navigation
             :scrollbar="{ draggable: true }"
           >
             <swiper-slide class="" v-for="slide in service.attributes.Slides">
