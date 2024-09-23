@@ -48,8 +48,15 @@ export default {
       </div>
     </div>
 
+    <div class="blocks" >
+      <div class="info_block" v-for="block in data.InfoBlock">
+        <h3>{{ block.NameBlock }}</h3>
+        <div class="info_block_line" v-for="line in block.LineInfoBlock">
+          <a :href="line.Link">↗ {{ line.NameLink }}</a>
+        </div>
+      </div>
+    </div>
 
-    
   </div>
 </template>
 
@@ -57,23 +64,52 @@ export default {
 .about {
   @apply
   gap-3
-  flex;
+  flex
+  flex-col
+  md:grid
+  grid-cols-13;
 
   .slide-autoplay {
     @apply
+    
     overflow-hidden
-    flex-1;
+    md:col-start-1
+    md:col-end-6;
   }
 
   .info {
     @apply
-    flex-1;
-    p{
-    @apply
-    mb-2;
-  }
+    px-3
+    md:px-0
+    md:col-span-5;
+    p {
+      @apply
+      mb-2;
+    }
   }
 
-  
+  .blocks {
+      @apply
+      
+      px-3
+      md:px-0
+      col-start-12
+      col-span-2;
+      .info_block {
+        h3 {
+          @apply
+          pb-2;
+        }
+        a {
+          &:hover {
+            @apply
+            text-blue-700;
+          }
+        }
+        @apply
+        mb-3;
+      }
+  }
 }
+
 </style>

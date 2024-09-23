@@ -7,7 +7,9 @@ import { data } from 'autoprefixer';
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Pagination, EffectFade, Autoplay } from 'swiper/modules';
 import 'swiper/css';
+import 'swiper/css/pagination';
 import videoPreview from '@/components/videoPreview.vue';
 
 export default {
@@ -20,6 +22,11 @@ export default {
         ...mapState(useStore, ['loading','data']),
 
   },
+  setup() {
+      return {
+        modules: [Pagination, EffectFade, Autoplay],
+      };
+    },
   data() {
     return {
       
@@ -94,15 +101,21 @@ export default {
           </div>
            
           <swiper
+          :modules="modules"
+          :effect="'fade'"
             :slides-per-view="1"
             :space-between="0"
+            :loop="true"
+            :pagination="{
+              type: 'fraction',
+            }"
             :scrollbar="{ draggable: true }"
           >
             <swiper-slide class="" v-for="slide in service.attributes.Slides">
-              
-              <videoPreview :aspectRatio="service.attributes.AspectRatio" :thumbnail="slide"/>
+              <div></div>
+              <videoPreview :class="service.attributes.AspectRatio" :thumbnail="slide"/>
               <router-link class="link" v-if="slide.proyecto && slide.proyecto.data && slide.proyecto.data.attributes"  :to="`${slide.proyecto.data.attributes.slug}` ">
-                {{ slide.DescriptionMedia }}
+                ↗ {{ slide.DescriptionMedia }}
               </router-link>
  
             </swiper-slide>
@@ -122,10 +135,9 @@ export default {
   margin-bottom: calc(134 * var(--r));
   @apply
   flex
-  justify-between
   flex-col;
+
   .info {
-    height: 10%;
     h2 {
       @apply
       block;
@@ -140,17 +152,36 @@ export default {
     
   }
   .swiper {
-    
+    gap:6px;
     @apply
-    
+    h-fit
+    flex
+    flex-col
     w-full;
-    .swiper-slide {
+    .swiper-pagination {
+       @apply
+       text-gray-400
+       flex
+       justify-end
+       pointer-events-none;
+      }
+    .swiper-wrapper {
       @apply
+      h-full;
+     .swiper-slide-visible {
+      @apply
+      z-10;
+     }
+      .swiper-slide {
+      @apply
+      cursor-grab
       flex
       flex-col
+      justify-center
       gap-1;
       .link {
         @apply
+        bg-slate-50
         text-gray-400;
         &:hover, &:active {
           @apply
@@ -170,12 +201,15 @@ export default {
         video {
           @apply
           max-w-none
-          h-full
-          w-auto;
+          w-full;
         }
       }
     } 
+    }
+    
   }
 }
+
+
 
 </style>

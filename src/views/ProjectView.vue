@@ -38,6 +38,7 @@ export default {
     const apiUrl = import.meta.env.VITE_STRAPI_URL;
     const authToken = import.meta.env.VITE_AUTH_TOKEN;
     this.fetchProject(apiUrl, authToken, this.$route.params.title);
+    
     this.toTop();
   },
   methods: {

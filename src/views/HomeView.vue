@@ -11,7 +11,13 @@ export default {
     videoPreview
   },
   computed: {
-        ...mapState(useStore, ['loading', 'data'])
+        ...mapState(useStore, ['loading', 'data', 'categoryType'])
+  },
+  data() {
+    return {
+
+    }
+    
   },
   created() {
 

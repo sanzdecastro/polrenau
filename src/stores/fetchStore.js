@@ -5,6 +5,7 @@ export const useStore = defineStore('apiStore', {
         loading: true,
         visited: false,
         whiteHeader: false,
+        all: [],
         data: [],
         project: {},
         settings: [],
@@ -165,6 +166,7 @@ export const useStore = defineStore('apiStore', {
               }
         },
 
+
         setIsInInfoRoute(value) {
           this.whiteHeader = value;
         },
@@ -185,13 +187,6 @@ export const useStore = defineStore('apiStore', {
             this.visited = true
               console.log("Ya has visitado esta página antes.");
           }
-        },
-
-        async getRandomRelated(apiUrl, authToken) {
-          this.fetchData(apiUrl, authToken);
-          console.log(this.data)
-          const randomIndex = Math.floor(Math.random() * this.data.length);
-          console.log(this.data[randomIndex]);
         },
 
         getClass(view) {
