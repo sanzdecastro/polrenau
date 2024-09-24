@@ -46,7 +46,7 @@ export const useStore = defineStore('apiStore', {
 
                 console.log(this.related1)
                 console.log(this.related2)
-
+                this.randomRelated = []
                 this.randomRelated.push(this.related1, this.related2);
                 console.log(this.randomRelated)
               }

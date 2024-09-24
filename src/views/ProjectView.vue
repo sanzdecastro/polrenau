@@ -168,8 +168,6 @@ export default {
             
           <relatedProjects v-if="project.Related && project.Related.data.length !== 0" :related="project.Related"/>
           
-          
-          
           <RelatedProjectsRandom v-else :related="this.randomRelated"/>
            
             <!-- <div class="related-projects">
