@@ -2,9 +2,9 @@
 import { gsap } from "gsap";
 
 export default {
-  name: 'relatedProjects',
+  name: 'relatedProjectsRandom',
   props: {
-    related: Object,
+    related: Array,
   },
   created() {
 
@@ -18,8 +18,8 @@ export default {
 <template>
 
     <div class="related-projects">
-      <span class="related-projects_title">Proyectos relacionados</span>
-      <div v-for="related in related.data" class="related-projects_related">
+      <span class="related-projects_title">Otros proyectos de Pol Renau</span>
+      <div v-for="related in related" class="related-projects_related">
         
         <router-link  :to="`${related.attributes.slug}` " :key="related.attributes.slug">
           <div class="media-container" :class="related.attributes.Preview.Media[0].AspectRatio">

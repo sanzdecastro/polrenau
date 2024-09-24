@@ -9,10 +9,48 @@ export const useStore = defineStore('apiStore', {
         data: [],
         project: {},
         settings: [],
+        randomRelated: []
       }),
       getters: {
       },
       actions: {
+        async fetchAll(apiUrl, authToken) {
+          this.loading = true;
+          console.log(this.loading)
+            try {
+                const response = await fetch(`${apiUrl}/api/proyectos?populate=deep,6` , {
+                    headers: {
+                        Authorization: `Bearer ${authToken}`,
+                    },
+                });
+                let all = await response.json();
+                this.all = all;
+                
+               
+              }
+              catch(error) {
+                console.log(error);
+              }
+              finally {
+                console.log(this.all);
+                console.log("done")
+                // console.log(this.loading)
+                this.loading = false;
+                console.log(this.loading)
+
+                const indice1 = Math.floor(Math.random() * this.all.data.length);
+                const indice2 = Math.floor(Math.random() * this.all.data.length);
+
+                this.related1 = this.all.data[indice1]
+                this.related2 = this.all.data[indice2]
+
+                console.log(this.related1)
+                console.log(this.related2)
+
+                this.randomRelated.push(this.related1, this.related2);
+                console.log(this.randomRelated)
+              }
+        },
         async fetchData(apiUrl, authToken) {
           this.loading = true;
           console.log(this.loading)

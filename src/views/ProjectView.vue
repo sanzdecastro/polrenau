@@ -9,6 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import videoProject from '@/components/videoProject.vue';
 import screenshots from '@/components/screenshots.vue';
 import relatedProjects from '@/components/relatedProjects.vue';
+import RelatedProjectsRandom from '@/components/relatedProjectsRandom.vue';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,10 +17,11 @@ export default {
   components: {
     videoProject,
     screenshots,
-    relatedProjects
+    relatedProjects,
+    RelatedProjectsRandom
   },
   computed: {
-        ...mapState(useStore, ['loading','data', 'project']),
+        ...mapState(useStore, ['loading', 'project', 'randomRelated']),
 
         projectViewClasses() {
           // Verifica si los datos necesarios están presentes antes de llamar a getClass
@@ -38,11 +40,15 @@ export default {
     const apiUrl = import.meta.env.VITE_STRAPI_URL;
     const authToken = import.meta.env.VITE_AUTH_TOKEN;
     this.fetchProject(apiUrl, authToken, this.$route.params.title);
-    
+    this.fetchAll(apiUrl, authToken);
     this.toTop();
+    
+  },
+  mounted(){
+   
   },
   methods: {
-      ...mapActions(useStore, ['fetchProject', 'getClass', 'setIsInInfoRoute', 'toTop']),
+      ...mapActions(useStore, ['fetchProject', 'getClass', 'setIsInInfoRoute', 'toTop', 'fetchAll']),
         
       isViewDefined(view) {
         return view && view.Columns !== undefined;
@@ -83,21 +89,7 @@ export default {
             },
           },
         });
-      },
-      printRandomRelated(arr) {
-        if (arr.length < 2) {
-          return 'No hay suficientes elementos para seleccionar dos.';
-        }
-
-        const indice1 = Math.floor(Math.random() * arr.length);
-        const indice2 = Math.floor(Math.random() * arr.length);
-
-        while (indice1 === indice2) {
-          indice2 = Math.floor(Math.random() * arr.length);
-        }
-
-        return `${JSON.stringify(arr[indice1])}, ${JSON.stringify(arr[indice2])}`;
-    }
+      }
   },
   watch: {
     loading(value) {
@@ -107,6 +99,7 @@ export default {
           this.resetHeader();
           this.toTop();
           setTimeout(() => {
+            
             this.pinnedSection();
           }, 1000);
         });
@@ -175,9 +168,36 @@ export default {
             
           <relatedProjects v-if="project.Related && project.Related.data.length !== 0" :related="project.Related"/>
           
-          <div v-else>
+          
+          
+          <RelatedProjectsRandom v-else :related="this.randomRelated"/>
            
-          </div>
+            <!-- <div class="related-projects">
+              <span class="related-projects_title">Related projects</span>
+              <div class="related-projects_related">
+                
+                <router-link  :to="`${this.related1.attributes.slug}` " :key="this.related1.attributes.slug">
+                  <div class="media-container" :class="this.related1.attributes.Preview.Media[0].AspectRatio">
+                  
+                    <video loop muted autoplay playsinline
+                      :src="this.related1.attributes.Preview.Media[0].Media.data.attributes.url" 
+                      v-if="this.related1.attributes.Preview.Media[0].Media.data.attributes.ext === '.mp4'">
+                    </video>
+                    <img :src="this.related1.attributes.Preview.Media[0].Media.data.attributes.url" 
+                    v-if="this.related1.attributes.Preview.Media[0].Media.data.attributes.ext === '.jpg' || this.related1.attributes.Preview.Media[0].Media.data.attributes.ext === '.png'">
+                  
+                  </div>
+                  <div class="project-details">
+                    <h3>{{ this.related1.attributes.Titulo }}</h3>
+                    <p class="client">{{ this.related1.attributes.Client }}</p>
+                  </div>
+                </router-link>
+                
+                
+              </div>
+            </div> -->
+          
+
         </div>
 
   </section>
