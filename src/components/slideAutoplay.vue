@@ -1,8 +1,9 @@
 <script>
 import { gsap } from "gsap";
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Autoplay } from 'swiper/modules';
+import { Autoplay, EffectFade } from 'swiper/modules';
 import 'swiper/css';
+import 'swiper/css/effect-fade';
 
 export default {
   name: 'slideAutoplay',
@@ -18,7 +19,7 @@ export default {
   },
   setup() {
     return {
-        modules: [Autoplay],
+        modules: [Autoplay, EffectFade],
       };
   },
   mounted() {
@@ -34,6 +35,7 @@ export default {
    <swiper
       :modules="modules"
           :slides-per-view="1"
+          :effect="'fade'"
           :space-between="0"
           :scrollbar="{ draggable: true }"
           :autoplay="{

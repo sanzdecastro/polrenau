@@ -50,9 +50,7 @@ export default {
   <header :class="{ white: whiteHeader, 'loadingHeader': loading, 'loaded': !loading }">
     <h1><RouterLink :to="{ name: 'home' }">Pol Renau Wehr</RouterLink></h1>
       <nav>
-        <RouterLink to="/" >{{ settings.Projects }}</RouterLink>
-        <RouterLink to="/services" >{{ settings.Services }}</RouterLink>
-        <RouterLink to="/about" > {{ settings.About }}</RouterLink>
+        <RouterLink v-for="item in settings.Menu" :to=item.MenuLink >{{ item.MenuText }}</RouterLink>
       </nav>
   </header>
 
@@ -81,6 +79,7 @@ header {
   opacity: 1;
   a {
     @apply
+    block
     text-gray-400;
   }
 }

@@ -81,19 +81,28 @@ footer {
 
 header h1 {
   @apply
-  col-span-2;
+  col-span-2
+  md:col-span-3;
 }
 
 header nav {
   @apply
-  md:text-right
   col-start-3
-  md:col-start-11
+  md:col-start-4
   col-span-3
-  md:col-span-3
-  grid
-  gap-3
-  grid-cols-3;
+  col-span-full
+  flex
+  flex-col
+  md:flex-row
+  md:justify-end
+  md:gap-7
+  w-full;
+  a {
+    @apply
+    text-right
+    md:text-left
+    col-span-2;
+  }
 }
 
 main.project-loop, main.services-page, .project-media, .about {
@@ -102,7 +111,7 @@ main.project-loop, main.services-page, .project-media, .about {
   padding-right: calc(20 * var(--r));
 
   @media screen and (max-width: 768px) {
-    padding-top: calc(60 * var(--rm));
+    padding-top: calc(130 * var(--rm));
     padding-left: calc(0 * var(--rm));
     padding-right: calc(0 * var(--rm));
   }
@@ -140,9 +149,49 @@ main.project-loop, main.services-page, .project-media, .about {
   aspect-16/9;
 }
 
+.aspect-9_16 {
+  @apply
+  aspect-9/16;
+}
+
 .aspect-3_4 {
   @apply
   aspect-3/4;
+}
+
+.aspect-4_3 {
+  @apply
+  aspect-4/3;
+}
+
+.aspect-4_5 {
+  @apply
+  aspect-4/5;
+}
+
+.aspect-5_4 {
+  @apply
+  aspect-5/4;
+}
+
+.aspect-1_85 {
+  @apply
+  aspect-1.85;
+}
+
+.aspect-2_35 {
+  @apply
+  aspect-2.35;
+}
+
+.aspect-2_39 {
+  @apply
+  aspect-2.39;
+}
+
+.aspect-2_40 {
+  @apply
+  aspect-2.40;
 }
 
 a.router-link-active {

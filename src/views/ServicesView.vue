@@ -11,6 +11,7 @@ import { Pagination, Navigation, EffectFade, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import 'swiper/css/effect-fade';
 import videoPreview from '@/components/videoPreview.vue';
 
 export default {
@@ -102,13 +103,14 @@ export default {
           </div>
            
           <swiper
-          :modules="modules"
-          :effect="'fade'"
+            :modules="modules"
+            :effect="'fade'"
+            :pagination="true"
             :slides-per-view="1"
             :space-between="0"
-            :loop="true"
-            :pagination="{
-              type: 'fraction',
+            :autoplay="{
+              delay: 3000, // Tiempo entre slides (en ms)
+              disableOnInteraction: false 
             }"
             :navigation
             :scrollbar="{ draggable: true }"
@@ -162,11 +164,24 @@ export default {
     w-full;
     .swiper-pagination {
        @apply
+       absolute
+       top-0
+       left-0
+       p-1
+       md:p-3
        text-gray-400
-       flex
-       justify-end
+       text-left
        pointer-events-none;
-      }
+       .swiper-pagination-bullet.swiper-pagination-bullet-active {
+        @apply
+        bg-gray-400;
+       }
+       .swiper-pagination-bullet {
+        @apply
+        opacity-100
+        bg-gray-300;
+       }
+    }
     .swiper-wrapper {
       @apply
       h-full;
@@ -184,6 +199,8 @@ export default {
         .link {
           @apply
           bg-slate-50
+          flex
+          h-fit
           text-gray-400;
           &:hover, &:active {
             @apply

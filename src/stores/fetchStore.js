@@ -185,7 +185,7 @@ export const useStore = defineStore('apiStore', {
           this.loading = true;
           console.log(this.loading)
             try {
-                const response = await fetch(`${apiUrl}/api/setting` , {
+                const response = await fetch(`${apiUrl}/api/setting?populate=deep,2` , {
                     headers: {
                         Authorization: `Bearer ${authToken}`,
                     },

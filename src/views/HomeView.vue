@@ -151,7 +151,7 @@ export default {
   .project-details {
     @apply
     pl-1
-    md:pl-1
+    md:pl-0
     text-nowrap;
     h2 {
       
