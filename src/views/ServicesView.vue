@@ -172,7 +172,8 @@ export default {
        text-gray-400
        text-left
        h-fit
-       pointer-events-all;
+       pointer-events-auto;
+       
        .swiper-pagination-bullet.swiper-pagination-bullet-active {
         @apply
         bg-gray-400;
