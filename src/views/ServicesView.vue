@@ -38,10 +38,10 @@ export default {
     const apiUrl = import.meta.env.VITE_STRAPI_URL;
     const authToken = import.meta.env.VITE_AUTH_TOKEN;
     this.fetchServices(apiUrl, authToken);
-    
-    },
+    this.toTop();
+  },
   methods: {
-      ...mapActions(useStore, ['fetchServices']),
+      ...mapActions(useStore, ['fetchServices', 'toTop']),
 
       
       onViewAnimation() {
