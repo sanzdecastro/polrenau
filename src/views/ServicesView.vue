@@ -105,7 +105,7 @@ export default {
           <swiper
             :modules="modules"
             :effect="'fade'"
-            :pagination="true"
+            :pagination="{ clickable: true }"
             :slides-per-view="1"
             :space-between="0"
             :autoplay="{
@@ -171,7 +171,8 @@ export default {
        md:p-3
        text-gray-400
        text-left
-       pointer-events-none;
+       h-fit
+       pointer-events-all;
        .swiper-pagination-bullet.swiper-pagination-bullet-active {
         @apply
         bg-gray-400;
