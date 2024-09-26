@@ -244,7 +244,9 @@ export default {
     min-height: 50vh;
     z-index: 1;
     position: relative;
+    width: 100vw;
     @apply
+    overflow-hidden
     bg-slate-50
     grid
     grid-cols-6

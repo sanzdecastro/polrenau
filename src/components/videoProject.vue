@@ -36,10 +36,7 @@ export default {
         this.togglePlay();
       });
 
-      // Evento touchend para dispositivos móviles
-      this.player.on('touchend', () => {
-        this.togglePlay();
-      });
+     
   })
     
   },
@@ -86,6 +83,7 @@ export default {
         this.player.pause();
       } else {
         this.player.play();
+        
       }
     }
   },
