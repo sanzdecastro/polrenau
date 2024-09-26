@@ -126,7 +126,7 @@ export default {
       col-span-2;
       .info_block {
         @apply
-        w-1/4
+        w-1/2
         lg:w-full;
         h3 {
           @apply
