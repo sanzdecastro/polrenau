@@ -20,6 +20,10 @@ export default {
         ...mapState(useStore, ['loading','data']),
 
   },
+
+  mounted() {
+    this.animateAbout();
+  },
   
   created() {
     const apiUrl = import.meta.env.VITE_STRAPI_URL;
@@ -29,6 +33,23 @@ export default {
   },
   methods: {
       ...mapActions(useStore, ['fetchAbout']),
+
+      animateAbout() {
+        const blocks = document.querySelectorAll(".about > div");
+
+        const tl = gsap.timeline({});
+
+        gsap.set(blocks, {
+          autoAlpha: 0,
+        })
+
+        tl.to(blocks, {
+          
+          autoAlpha: 1,
+          stagger: .3,
+          ease: "power1.out"
+        })
+      }
   }
 }
 </script>
