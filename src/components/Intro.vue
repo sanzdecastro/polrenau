@@ -2,19 +2,17 @@
 import { gsap } from "gsap";
 import { mapState } from 'pinia';
 import { useStore } from '@/stores/fetchStore.js';
+import { onMounted, onUnmounted } from 'vue'
 
 export default {
   name: 'Intro',
   props: {
 
   },
-  mounted() {
-    setTimeout(() => {
-            this.animateIntro();
-          }, 2000);
-  },
   created() {
-    
+    setTimeout(()=> {
+      this.animateIntro();
+    }, 3000)
   },
   computed: {
         ...mapState(useStore, ['loading'])
@@ -85,6 +83,7 @@ export default {
         autoAlpha: 1,
         ease: "power1.out"
       }, "<25%")
+
     }
   },
   // watch: {
@@ -102,7 +101,7 @@ export default {
 </script>
 
 <template>
-  <div class="intro">
+  <div class="intro" ref="intro">
     <div class="intro-wrapper">
       <div class="name"><p>Pol Renau Wehr</p></div>
     </div>
