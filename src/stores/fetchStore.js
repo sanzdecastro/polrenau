@@ -230,68 +230,68 @@ export const useStore = defineStore('apiStore', {
 
         getClass(view) {
           let columnsClass = {
-            col1: 'md:col-span-1 col-span-3',
-            col2: 'md:col-span-2 col-span-3',
-            col3: 'md:col-span-3 col-span-3',
-            col4: 'md:col-span-4 col-span-4',
-            col5: 'md:col-span-5 col-span-4',
-            col6: 'md:col-span-6 col-span-4',
-            col7: 'md:col-span-7 col-span-5',
-            col8: 'md:col-span-8 col-span-5',
-            col9: 'md:col-span-9 col-span-5',
-            col10: 'md:col-span-10 col-span-5',
-            col11: 'md:col-span-11 col-span-6',
-            col12: 'md:col-span-12 col-span-6',
-            col13: 'md:col-span-13 col-span-6'
+            col1: 'lg:col-span-1 col-span-3',
+            col2: 'lg:col-span-2 col-span-3',
+            col3: 'lg:col-span-3 col-span-3',
+            col4: 'lg:col-span-4 col-span-4',
+            col5: 'lg:col-span-5 col-span-4',
+            col6: 'lg:col-span-6 col-span-4',
+            col7: 'lg:col-span-7 col-span-5',
+            col8: 'lg:col-span-8 col-span-5',
+            col9: 'lg:col-span-9 col-span-5',
+            col10: 'lg:col-span-10 col-span-5',
+            col11: 'lg:col-span-11 col-span-6',
+            col12: 'lg:col-span-12 col-span-6',
+            col13: 'lg:col-span-13 col-span-6'
           };
 
           let startColumnClass = {
-            col1: 'md:col-start-1',
-            col2: 'md:col-start-2',
-            col3: 'md:col-start-3',
-            col4: 'md:col-start-4',
-            col5: 'md:col-start-5',
-            col6: 'md:col-start-6',
-            col7: 'md:col-start-7',
-            col8: 'md:col-start-8',
-            col9: 'md:col-start-9',
-            col10: 'md:col-start-10',
-            col11: 'md:col-start-11',
-            col12: 'md:col-start-12',
-            col13: 'md:col-start-13'
+            col1: 'lg:col-start-1',
+            col2: 'lg:col-start-2',
+            col3: 'lg:col-start-3',
+            col4: 'lg:col-start-4',
+            col5: 'lg:col-start-5',
+            col6: 'lg:col-start-6',
+            col7: 'lg:col-start-7',
+            col8: 'lg:col-start-8',
+            col9: 'lg:col-start-9',
+            col10: 'lg:col-start-10',
+            col11: 'lg:col-start-11',
+            col12: 'lg:col-start-12',
+            col13: 'lg:col-start-13'
           };
 
           let endColumnClass = {
-            col1: 'md:col-end-1 col-end-1',
-            col2: 'md:col-end-2 col-end-1',
-            col3: 'md:col-end-3 col-end-1',
-            col4: 'md:col-end-4 col-end-2',
-            col5: 'md:col-end-5 col-end-2',
-            col6: 'md:col-end-6 col-end-3',
-            col7: 'md:col-end-7 col-end-3',
-            col8: 'md:col-end-8 col-end-4',
-            col9: 'md:col-end-9 col-end-4',
-            col10: 'md:col-end-10 col-end-5',
-            col11: 'md:col-end-11 col-end-5',
-            col12: 'md:col-end-12 col-end-6',
-            col13: 'md:col-end-13 col-end-6',
-            col14: 'md:col-end-14 col-end-6'
+            col1: 'lg:col-end-1 col-end-1',
+            col2: 'lg:col-end-2 col-end-1',
+            col3: 'lg:col-end-3 col-end-1',
+            col4: 'lg:col-end-4 col-end-2',
+            col5: 'lg:col-end-5 col-end-2',
+            col6: 'lg:col-end-6 col-end-3',
+            col7: 'lg:col-end-7 col-end-3',
+            col8: 'lg:col-end-8 col-end-4',
+            col9: 'lg:col-end-9 col-end-4',
+            col10: 'lg:col-end-10 col-end-5',
+            col11: 'lg:col-end-11 col-end-5',
+            col12: 'lg:col-end-12 col-end-6',
+            col13: 'lg:col-end-13 col-end-6',
+            col14: 'lg:col-end-14 col-end-6'
           };
 
           let gridClass = {
-            col1: 'md:grid-cols-1 grid-cols-1',
-            col2: 'md:grid-cols-2 grid-cols-1',
-            col3: 'md:grid-cols-3 grid-cols-1',
-            col4: 'md:grid-cols-4 grid-cols-2',
-            col5: 'md:grid-cols-5 grid-cols-2',
-            col6: 'md:grid-cols-6 grid-cols-3',
-            col7: 'md:grid-cols-7 grid-cols-3',
-            col8: 'md:grid-cols-8 grid-cols-4',
-            col9: 'md:grid-cols-9 grid-cols-4',
-            col10: 'md:grid-cols-10 grid-cols-5',
-            col11: 'md:grid-cols-11 grid-cols-5',
-            col12: 'md:grid-cols-12 grid-cols-6',
-            col13: 'md:grid-cols-13 grid-cols-6'
+            col1: 'lg:grid-cols-1 grid-cols-1',
+            col2: 'lg:grid-cols-2 grid-cols-1',
+            col3: 'lg:grid-cols-3 grid-cols-1',
+            col4: 'lg:grid-cols-4 grid-cols-2',
+            col5: 'lg:grid-cols-5 grid-cols-2',
+            col6: 'lg:grid-cols-6 grid-cols-3',
+            col7: 'lg:grid-cols-7 grid-cols-3',
+            col8: 'lg:grid-cols-8 grid-cols-4',
+            col9: 'lg:grid-cols-9 grid-cols-4',
+            col10: 'lg:grid-cols-10 grid-cols-5',
+            col11: 'lg:grid-cols-11 grid-cols-5',
+            col12: 'lg:grid-cols-12 grid-cols-6',
+            col13: 'lg:grid-cols-13 grid-cols-6'
           };
 
           return [

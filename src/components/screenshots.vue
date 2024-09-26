@@ -34,17 +34,17 @@ export default {
   .project-info_screenshots {
     @apply
     mb-10
-    md:mb-0
+    lg:mb-0
     overflow-y-hidden
-    md:grid
+    lg:grid
     grid-cols-3
     gap-3
     order-4
-    md:order-none
+    lg:order-none
     col-start-1
     col-span-8
-    md:col-start-4
-    md:col-span-11
+    lg:col-start-4
+    lg:col-span-11
     flex
     flex-col;
     padding-bottom: calc(76 * var(--r));
@@ -54,18 +54,18 @@ export default {
     }
     .screenshots {
       @apply
-      md:col-span-3
-      md:grid
+      lg:col-span-3
+      lg:grid
       grid-cols-3
       gap-3
       w-fit
       overflow-scroll
-      md:overflow-hidden
+      lg:overflow-hidden
       flex;
       .screenshot {
         width: 75vw;
         @apply 
-        md:w-full;
+        lg:w-full;
       }
     }
     

@@ -51,7 +51,7 @@ export default {
     padding-top: calc(34 * var(--r));
     @apply
     !col-start-1
-    md:!col-start-4
+    lg:!col-start-4
     col-end-7;
   }
   .project-details {

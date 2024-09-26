@@ -114,35 +114,35 @@ export default {
   <main class="view">
     <section class="project-view" :class="{ 'only-one': project.View && project.View.GridView && project.View.GridView.length === 1 }">
      
-        <div class="project-media flex md:grid"  :class="
-          getViewColumns(project.View) === 'col1' ? 'md:grid-cols-1' :
-          getViewColumns(project.View) === 'col2' ? 'md:grid-cols-2' : 
-          getViewColumns(project.View) === 'col3' ? 'md:grid-cols-3' : 
-          getViewColumns(project.View) === 'col4' ? 'md:grid-cols-4' : 
-          getViewColumns(project.View) === 'col5' ? 'md:grid-cols-5' : 
-          getViewColumns(project.View) === 'col6' ? 'md:grid-cols-6' : 
-          getViewColumns(project.View) === 'col7' ? 'md:grid-cols-7' : 
-          getViewColumns(project.View) === 'col8' ? 'md:grid-cols-8' : 
-          getViewColumns(project.View) === 'col9' ? 'md:grid-cols-9' : 
-          getViewColumns(project.View) === 'col10' ? 'md:grid-cols-10' : 
-          getViewColumns(project.View) === 'col11' ? 'md:grid-cols-11' : 
-          getViewColumns(project.View) === 'col12' ? 'md:grid-cols-12' : 
-          getViewColumns(project.View) === 'col13' ? 'md:grid-cols-13' : '' ">
+        <div class="project-media flex lg:grid"  :class="
+          getViewColumns(project.View) === 'col1' ? 'lg:grid-cols-1' :
+          getViewColumns(project.View) === 'col2' ? 'lg:grid-cols-2' : 
+          getViewColumns(project.View) === 'col3' ? 'lg:grid-cols-3' : 
+          getViewColumns(project.View) === 'col4' ? 'lg:grid-cols-4' : 
+          getViewColumns(project.View) === 'col5' ? 'lg:grid-cols-5' : 
+          getViewColumns(project.View) === 'col6' ? 'lg:grid-cols-6' : 
+          getViewColumns(project.View) === 'col7' ? 'lg:grid-cols-7' : 
+          getViewColumns(project.View) === 'col8' ? 'lg:grid-cols-8' : 
+          getViewColumns(project.View) === 'col9' ? 'lg:grid-cols-9' : 
+          getViewColumns(project.View) === 'col10' ? 'lg:grid-cols-10' : 
+          getViewColumns(project.View) === 'col11' ? 'lg:grid-cols-11' : 
+          getViewColumns(project.View) === 'col12' ? 'lg:grid-cols-12' : 
+          getViewColumns(project.View) === 'col13' ? 'lg:grid-cols-13' : '' ">
             <div class="grid media-section" :class="projectViewClasses">
               <div v-for="media in getViewMedia(project.View)" :class="
-                  media.Columns === 'col1' ? 'col-span-full md:col-span-1' :
-                  media.Columns === 'col2' ? 'col-span-full md:col-span-2' : 
-                  media.Columns === 'col3' ? 'col-span-full md:col-span-3' : 
-                  media.Columns === 'col4' ? 'col-span-full md:col-span-4' : 
-                  media.Columns === 'col5' ? 'col-span-full md:col-span-5' : 
-                  media.Columns === 'col6' ? 'col-span-full md:col-span-6' : 
-                  media.Columns === 'col7' ? 'col-span-full md:col-span-7' : 
-                  media.Columns === 'col8' ? 'col-span-full md:col-span-8' : 
-                  media.Columns === 'col9' ? 'col-span-full md:col-span-9' : 
-                  media.Columns === 'col10' ? 'col-span-full md:col-span-10' : 
-                  media.Columns === 'col11' ? 'col-span-full md:col-span-11' : 
-                  media.Columns === 'col12' ? 'col-span-full md:col-span-12' : 
-                  media.Columns === 'col13' ? 'col-span-full md:col-span-13' : '' ">
+                  media.Columns === 'col1' ? 'col-span-full lg:col-span-1' :
+                  media.Columns === 'col2' ? 'col-span-full lg:col-span-2' : 
+                  media.Columns === 'col3' ? 'col-span-full lg:col-span-3' : 
+                  media.Columns === 'col4' ? 'col-span-full lg:col-span-4' : 
+                  media.Columns === 'col5' ? 'col-span-full lg:col-span-5' : 
+                  media.Columns === 'col6' ? 'col-span-full lg:col-span-6' : 
+                  media.Columns === 'col7' ? 'col-span-full lg:col-span-7' : 
+                  media.Columns === 'col8' ? 'col-span-full lg:col-span-8' : 
+                  media.Columns === 'col9' ? 'col-span-full lg:col-span-9' : 
+                  media.Columns === 'col10' ? 'col-span-full lg:col-span-10' : 
+                  media.Columns === 'col11' ? 'col-span-full lg:col-span-11' : 
+                  media.Columns === 'col12' ? 'col-span-full lg:col-span-12' : 
+                  media.Columns === 'col13' ? 'col-span-full lg:col-span-13' : '' ">
 
                   <videoProject v-if="!loading" :media="media" :key="media.id"/>
 
@@ -235,7 +235,7 @@ export default {
       text-white;
       padding-bottom: calc(106 * var(--r));
 
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 1024px) {
         padding-bottom: calc(60 * var(--rm));
       }
     }
@@ -254,7 +254,7 @@ export default {
     bg-slate-50
     grid
     grid-cols-6
-    md:grid-cols-13
+    lg:grid-cols-13
     gap-0;
 
     & > div {
@@ -265,14 +265,14 @@ export default {
   .project-info_title {
     @apply 
     mb-10
-    md:mb-0
+    lg:mb-0
     order-1
-    md:order-none
+    lg:order-none
     col-start-1
     col-end-6
     
-    md:col-start-2
-    md:col-end-4;
+    lg:col-start-2
+    lg:col-end-4;
     p {
       @apply
       text-gray-400;
@@ -282,12 +282,12 @@ export default {
   .project-info_desc {
     @apply 
     mb-10
-    md:mb-0
+    lg:mb-0
     order-3
-    md:order-none
+    lg:order-none
     col-span-full
-    md:col-start-4
-    md:col-end-8;
+    lg:col-start-4
+    lg:col-end-8;
     p {
       white-space: pre-line;
       padding-bottom: calc(76 * var(--r));
@@ -298,7 +298,7 @@ export default {
   .project-info_year {
     @apply 
     order-2
-    md:order-none
+    lg:order-none
     text-right
     col-start-8
     col-end-8;
@@ -312,17 +312,17 @@ export default {
     grid-template-rows: max-content;
     @apply 
     order-5
-    md:order-none
+    lg:order-none
     col-start-1
     col-span-8
     grid
     
     bg-gray-200
     gap-3
-    md:col-start-1
-    md:col-span-13
-    md:grid
-    md:grid-cols-13;
+    lg:col-start-1
+    lg:col-span-13
+    lg:grid
+    lg:grid-cols-13;
 
    
   }
@@ -331,8 +331,8 @@ export default {
     @apply
     col-start-1
     col-end-4
-    md:col-start-4
-    md:col-span-5;
+    lg:col-start-4
+    lg:col-span-5;
   }
 
   .related-projects :nth-child(odd) {
@@ -340,8 +340,8 @@ export default {
     col-start-4
     
     col-end-7
-    md:col-start-9
-    md:col-span-5;
+    lg:col-start-9
+    lg:col-span-5;
   }
 
   .view + footer {

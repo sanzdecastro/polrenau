@@ -66,25 +66,25 @@ export default {
   gap-3
   flex
   flex-col
-  md:grid
+  lg:grid
   grid-cols-13;
 
   .slide-autoplay {
     @apply
     order-2
-    md:order-1
+    lg:order-1
     overflow-hidden
-    md:col-start-1
-    md:col-end-6;
+    lg:col-start-1
+    lg:col-end-6;
   }
 
   .info {
     @apply
     order-3
-    md:order-2
+    lg:order-2
     px-1
-    md:px-0
-    md:col-span-5;
+    lg:px-0
+    lg:col-span-5;
     p {
       @apply
       mb-2;
@@ -94,16 +94,19 @@ export default {
   .blocks {
       @apply
       order-1
-      md:order-3
+      lg:order-3
       flex
       gap-6
       flex-wrap
-      md:flex-col
+      lg:flex-col
       px-1
-      md:px-0
+      lg:px-0
       col-start-12
       col-span-2;
       .info_block {
+        @apply
+        w-1/4
+        lg:w-full;
         h3 {
           @apply
           pb-2;
@@ -122,7 +125,7 @@ export default {
 
 .about + footer {
   @apply
-  md:fixed
+  lg:fixed
   bottom-0
   w-full;
 }

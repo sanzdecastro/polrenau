@@ -104,7 +104,7 @@ export default {
 .legend {
   @apply
   pl-1
-  md:pl-0
+  lg:pl-0
   pt-1
   text-gray-400;
 }
@@ -134,7 +134,7 @@ export default {
   & > video {
     @apply
     object-cover;
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1024px) {
       object-fit: contain;
     }
   }

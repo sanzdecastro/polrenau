@@ -82,7 +82,7 @@ export default {
     @apply
     z-40
     p-1
-    md:p-3
+    lg:p-3
     bg-white
     flex
     justify-center

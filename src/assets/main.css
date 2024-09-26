@@ -36,9 +36,9 @@ header {
   grid
   gap-3
   grid-cols-6
-  md:grid-cols-13;
+  lg:grid-cols-13;
   width: 100%;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     width: 100vw;
   }
   
@@ -51,35 +51,35 @@ header {
 footer {
   margin-top: calc(387 * var(--r));;
   padding: calc(20 * var(--r));
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     padding: calc(10 * var(--rm));
   }
 
   @apply
   grid
   grid-cols-6
-  md:grid-cols-13;
+  lg:grid-cols-13;
   .mail {
     @apply
     col-span-1
-    md:col-span-2
+    lg:col-span-2
     col-start-1
-    md:col-start-4;
+    lg:col-start-4;
   }
   .phone {
     @apply
     col-span-3
-    md:col-span-2
+    lg:col-span-2
     col-start-2
-    md:col-start-6;
+    lg:col-start-6;
   }
   p {
     @apply
     text-right
     col-span-2
-    md:col-span-2
+    lg:col-span-2
     col-start-5
-    md:col-start-12
+    lg:col-start-12
   }
 }
 
@@ -87,25 +87,25 @@ footer {
 header h1 {
   @apply
   col-span-2
-  md:col-span-3;
+  lg:col-span-3;
 }
 
 header nav {
   @apply
   col-start-3
-  md:col-start-4
+  lg:col-start-4
   col-span-3
   col-span-full
   flex
   flex-col
-  md:flex-row
-  md:justify-end
-  md:gap-7
+  lg:flex-row
+  lg:justify-end
+  lg:gap-7
   w-full;
   a {
     @apply
     text-right
-    md:text-left
+    lg:text-left
     col-span-2;
   }
 }
@@ -115,7 +115,7 @@ main.project-loop, main.services-page, .project-media, .about {
   padding-left: calc(20 * var(--r));
   padding-right: calc(20 * var(--r));
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     padding-top: calc(130 * var(--rm));
     padding-left: calc(0 * var(--rm));
     padding-right: calc(0 * var(--rm));
