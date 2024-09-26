@@ -9,7 +9,7 @@ export default {
   mounted() {
     setTimeout(() => {
       this.animateIntro();
-    }, 500)
+    }, 1000)
     
   },
   created() {
