@@ -110,7 +110,7 @@ export default {
 .only-one {
   .col-span-full {
     .media-container {
-      height: 100dvh;
+      height: 100%;
       .vjs-matrix.video-js {
         width: 100%;
         height: 100%;
