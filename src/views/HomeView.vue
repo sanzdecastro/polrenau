@@ -98,15 +98,15 @@ export default {
         <div class="media" v-for="thumbnail in  project.attributes.Preview.Media" :key="project.id" :class="
           thumbnail.Columns === 'col1' ? 'md:col-span-1 col-span-2' :
           thumbnail.Columns === 'col2' ? 'md:col-span-2 col-span-2' : 
-          thumbnail.Columns === 'col3' ? 'md:col-span-3 col-span-2' : 
+          thumbnail.Columns === 'col3' ? 'md:col-span-3 col-span-3' : 
           thumbnail.Columns === 'col4' ? 'md:col-span-4 col-span-3' : 
           thumbnail.Columns === 'col5' ? 'md:col-span-5 col-span-3' : 
-          thumbnail.Columns === 'col6' ? 'md:col-span-6 col-span-3' : 
-          thumbnail.Columns === 'col7' ? 'md:col-span-7 col-span-4' : 
-          thumbnail.Columns === 'col8' ? 'md:col-span-8 col-span-4' : 
-          thumbnail.Columns === 'col9' ? 'md:col-span-9 col-span-4' : 
-          thumbnail.Columns === 'col10' ? 'md:col-span-10 col-span-5' : 
-          thumbnail.Columns === 'col11' ? 'md:col-span-11 col-span-5' : 
+          thumbnail.Columns === 'col6' ? 'md:col-span-6 col-span-5' : 
+          thumbnail.Columns === 'col7' ? 'md:col-span-7 col-span-5' : 
+          thumbnail.Columns === 'col8' ? 'md:col-span-8 col-span-5' : 
+          thumbnail.Columns === 'col9' ? 'md:col-span-9 col-span-5' : 
+          thumbnail.Columns === 'col10' ? 'md:col-span-10 col-span-6' : 
+          thumbnail.Columns === 'col11' ? 'md:col-span-11 col-span-6' : 
           thumbnail.Columns === 'col12' ? 'md:col-span-12 col-span-6' : 
           thumbnail.Columns === 'col13' ? 'md:col-span-13 col-span-6' : '' ">
           
@@ -140,8 +140,12 @@ export default {
       @apply
       block
       mb-14
-      
       md:mb-0;
+      .media.col-span-5 + .project-details{
+        @apply
+        md:col-span-1
+        col-span-2;
+      }
     }
   }
   .grid {
@@ -149,6 +153,7 @@ export default {
     gap-3;
     
   }
+ 
   .project-details {
     @apply
     pl-1

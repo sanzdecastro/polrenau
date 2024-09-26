@@ -144,6 +144,11 @@ main.project-loop, main.services-page, .project-media, .about {
   w-full;
 }
 
+.aspect-1_1 {
+  @apply
+  aspect-1/1;
+}
+
 .aspect-16_9 {
   @apply
   aspect-16/9;
