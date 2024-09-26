@@ -206,6 +206,8 @@ export default {
 <style>
 
   .project-view {
+    width: 100vw;
+    overflow: hidden;
     .pin-spacer {
       z-index: 0!important;
     }
@@ -227,7 +229,7 @@ export default {
   }
 
   .project-media {
-    min-height: 100vh;
+    min-height: 100dvh;
     @apply
     -z-10
     bg-black
