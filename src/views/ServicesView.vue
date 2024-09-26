@@ -176,7 +176,7 @@ export default {
        left-0
        p-2
        pt-3
-       md:py-3
+       md:py-4
        text-gray-400
        text-left
        h-fit
@@ -187,7 +187,9 @@ export default {
        .swiper-pagination-bullet.swiper-pagination-bullet-active {
         @apply
         opacity-100
-        bg-transparent;
+        text-black
+        bg-white
+        opacity-70;
        }
        .swiper-pagination-bullet {
         @apply
@@ -201,6 +203,7 @@ export default {
         border-gray-200
         text-gray-200
         opacity-50
+        bg-opacity-0
         bg-transparent;
         
         
