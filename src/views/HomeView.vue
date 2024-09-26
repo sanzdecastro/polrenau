@@ -99,8 +99,8 @@ export default {
           thumbnail.Columns === 'col1' ? 'md:col-span-1 col-span-2' :
           thumbnail.Columns === 'col2' ? 'md:col-span-2 col-span-2' : 
           thumbnail.Columns === 'col3' ? 'md:col-span-3 col-span-3' : 
-          thumbnail.Columns === 'col4' ? 'md:col-span-4 col-span-3' : 
-          thumbnail.Columns === 'col5' ? 'md:col-span-5 col-span-3' : 
+          thumbnail.Columns === 'col4' ? 'md:col-span-4 col-span-4' : 
+          thumbnail.Columns === 'col5' ? 'md:col-span-5 col-span-4' : 
           thumbnail.Columns === 'col6' ? 'md:col-span-6 col-span-5' : 
           thumbnail.Columns === 'col7' ? 'md:col-span-7 col-span-5' : 
           thumbnail.Columns === 'col8' ? 'md:col-span-8 col-span-5' : 
