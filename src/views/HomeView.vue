@@ -81,34 +81,34 @@ export default {
       :class="getClass(project.attributes.Preview)">
       <router-link  :to="`${project.attributes.slug}` ">
       <div class="grid" :class="
-        project.attributes.Preview.Columns === 'col1' ? 'md:grid-cols-1' :
-        project.attributes.Preview.Columns === 'col2' ? 'md:grid-cols-2' : 
-        project.attributes.Preview.Columns === 'col3' ? 'md:grid-cols-3' : 
-        project.attributes.Preview.Columns === 'col4' ? 'md:grid-cols-4' : 
-        project.attributes.Preview.Columns === 'col5' ? 'md:grid-cols-5' : 
-        project.attributes.Preview.Columns === 'col6' ? 'md:grid-cols-6' : 
-        project.attributes.Preview.Columns === 'col7' ? 'md:grid-cols-7' : 
-        project.attributes.Preview.Columns === 'col8' ? 'md:grid-cols-8' : 
-        project.attributes.Preview.Columns === 'col9' ? 'md:grid-cols-9' : 
-        project.attributes.Preview.Columns === 'col10' ? 'md:grid-cols-10' : 
-        project.attributes.Preview.Columns === 'col11' ? 'md:grid-cols-11' : 
-        project.attributes.Preview.Columns === 'col12' ? 'md:grid-cols-12' : 
-        project.attributes.Preview.Columns === 'col13' ? 'md:grid-cols-13' : '' ">
+        project.attributes.Preview.Columns === 'col1' ? 'md:grid-cols-1 grid-cols-2' :
+        project.attributes.Preview.Columns === 'col2' ? 'md:grid-cols-2 grid-cols-2' : 
+        project.attributes.Preview.Columns === 'col3' ? 'md:grid-cols-3 grid-cols-3' : 
+        project.attributes.Preview.Columns === 'col4' ? 'md:grid-cols-4 grid-cols-3' : 
+        project.attributes.Preview.Columns === 'col5' ? 'md:grid-cols-5 grid-cols-3' : 
+        project.attributes.Preview.Columns === 'col6' ? 'md:grid-cols-6 grid-cols-4' : 
+        project.attributes.Preview.Columns === 'col7' ? 'md:grid-cols-7 grid-cols-4' : 
+        project.attributes.Preview.Columns === 'col8' ? 'md:grid-cols-8 grid-cols-4' : 
+        project.attributes.Preview.Columns === 'col9' ? 'md:grid-cols-9 grid-cols-4' : 
+        project.attributes.Preview.Columns === 'col10' ? 'md:grid-cols-10 grid-cols-5' : 
+        project.attributes.Preview.Columns === 'col11' ? 'md:grid-cols-11 grid-cols-6' : 
+        project.attributes.Preview.Columns === 'col12' ? 'md:grid-cols-12 grid-cols-6' : 
+        project.attributes.Preview.Columns === 'col13' ? 'md:grid-cols-13 grid-cols-6' : '' ">
 
         <div class="media" v-for="thumbnail in  project.attributes.Preview.Media" :key="project.id" :class="
-          thumbnail.Columns === 'col1' ? 'col-span-1' :
-          thumbnail.Columns === 'col2' ? 'col-span-2' : 
-          thumbnail.Columns === 'col3' ? 'col-span-3' : 
-          thumbnail.Columns === 'col4' ? 'col-span-4' : 
-          thumbnail.Columns === 'col5' ? 'col-span-5' : 
-          thumbnail.Columns === 'col6' ? 'col-span-6' : 
-          thumbnail.Columns === 'col7' ? 'col-span-7' : 
-          thumbnail.Columns === 'col8' ? 'col-span-8' : 
-          thumbnail.Columns === 'col9' ? 'col-span-9' : 
-          thumbnail.Columns === 'col10' ? 'col-span-10' : 
-          thumbnail.Columns === 'col11' ? 'col-span-11' : 
-          thumbnail.Columns === 'col12' ? 'col-span-12' : 
-          thumbnail.Columns === 'col13' ? 'col-span-13' : '' ">
+          thumbnail.Columns === 'col1' ? 'md:col-span-1 col-span-2' :
+          thumbnail.Columns === 'col2' ? 'md:col-span-2 col-span-2' : 
+          thumbnail.Columns === 'col3' ? 'md:col-span-3 col-span-2' : 
+          thumbnail.Columns === 'col4' ? 'md:col-span-4 col-span-3' : 
+          thumbnail.Columns === 'col5' ? 'md:col-span-5 col-span-3' : 
+          thumbnail.Columns === 'col6' ? 'md:col-span-6 col-span-3' : 
+          thumbnail.Columns === 'col7' ? 'md:col-span-7 col-span-4' : 
+          thumbnail.Columns === 'col8' ? 'md:col-span-8 col-span-4' : 
+          thumbnail.Columns === 'col9' ? 'md:col-span-9 col-span-4' : 
+          thumbnail.Columns === 'col10' ? 'md:col-span-10 col-span-5' : 
+          thumbnail.Columns === 'col11' ? 'md:col-span-11 col-span-5' : 
+          thumbnail.Columns === 'col12' ? 'md:col-span-12 col-span-6' : 
+          thumbnail.Columns === 'col13' ? 'md:col-span-13 col-span-6' : '' ">
           
 
           <videoPreview :thumbnail="thumbnail" :key="thumbnail.id"/>
@@ -147,6 +147,9 @@ export default {
   .grid {
     @apply
     gap-3;
+    @media screen and (max-width: 768px) {
+      row-gap: 4px;
+    }
   }
   .project-details {
     @apply

@@ -77,6 +77,7 @@ header {
   transition: all .6s ease-in-out;
   transition-delay: 0ms;
   opacity: 1;
+  width: 100vw;
   a {
     @apply
     block
