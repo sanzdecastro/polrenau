@@ -9,10 +9,12 @@ export default {
 
   },
   mounted() {
-    
+    setTimeout(() => {
+            this.animateIntro();
+          }, 2000);
   },
   created() {
-
+    
   },
   computed: {
         ...mapState(useStore, ['loading'])
@@ -74,28 +76,28 @@ export default {
         stagger: .04,
         ease: "power1.out"
       }, "<.3").to(title, {
-            delay: .5,
-            xPercent: 0,
-            autoAlpha: 1,
-            ease: "power1.out"
-          }, "<").to(client, {
-            xPercent: 0,
-            autoAlpha: 1,
-            ease: "power1.out"
-          }, "<25%")
+        delay: .5,
+        xPercent: 0,
+        autoAlpha: 1,
+        ease: "power1.out"
+      }, "<").to(client, {
+        xPercent: 0,
+        autoAlpha: 1,
+        ease: "power1.out"
+      }, "<25%")
     }
   },
-  watch: {
-      loading(value) {
-        if (!value) {
-          // La variable cambió a false
-          setTimeout(() => {
-            this.animateIntro();
-          }, 100);
+  // watch: {
+  //     loading(value) {
+  //       if (!value) {
+  //         // La variable cambió a false
+  //         setTimeout(() => {
+  //           this.animateIntro();
+  //         }, 100);
             
-        }
-      },
-  }
+  //       }
+  //     },
+  // }
 }
 </script>
 
