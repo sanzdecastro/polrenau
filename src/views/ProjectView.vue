@@ -230,6 +230,7 @@ export default {
       min-height: 100vh;
       @apply
       items-center
+      justify-center
       -z-10
       bg-black
       text-white;

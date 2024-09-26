@@ -39,7 +39,8 @@ header {
   lg:grid-cols-13;
   width: 100%;
   @media screen and (max-width: 1024px) {
-    width: 100vw;
+    width: 100%;
+    padding: calc(10 * var(--rm));
   }
   
   &.white {
@@ -49,8 +50,8 @@ header {
 }
 
 footer {
-  margin-top: calc(387 * var(--r));;
   padding: calc(20 * var(--r));
+  margin-top: calc(387 * var(--r));;
   @media screen and (max-width: 1024px) {
     padding: calc(10 * var(--rm));
   }
