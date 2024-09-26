@@ -219,7 +219,7 @@ export default {
         !px-0;
         
         .media-section {
-          min-height: 100vh;
+          min-height: 100dvh;
           @apply
           justify-center
           items-center;

@@ -31,12 +31,15 @@ export default {
       this.player.on('click', () => {
         this.togglePlay();
       });
-       // Evento touchstart para dispositivos móviles
-      this.player.on('touchstart', () => {
-        this.togglePlay();
-      });
+      //  // Evento touchstart para dispositivos móviles
+      // this.player.on('touchstart', () => {
+      //   this.togglePlay();
+      // });
 
-     
+      // // Evento touchend para dispositivos móviles
+      // this.player.on('touchend', () => {
+      //   this.togglePlay();
+      // });
   })
     
   },
@@ -78,14 +81,7 @@ export default {
       }
     },
 
-    togglePlay() {
-      if (this.player && this.player.playing()) {
-        this.player.pause();
-      } else {
-        this.player.play();
-        
-      }
-    }
+    
   },
 
 }
@@ -114,7 +110,7 @@ export default {
 .only-one {
   .col-span-full {
     .media-container {
-      height: 100vh;
+      height: 100dvh;
       .vjs-matrix.video-js {
         width: 100%;
         height: 100%;
