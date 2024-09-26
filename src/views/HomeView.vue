@@ -147,9 +147,7 @@ export default {
   .grid {
     @apply
     gap-3;
-    @media screen and (max-width: 768px) {
-      row-gap: 4px;
-    }
+    
   }
   .project-details {
     @apply
