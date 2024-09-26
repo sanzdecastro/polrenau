@@ -18,50 +18,26 @@ export default {
 
       var intro = document.querySelector(".intro");
       var name = intro.querySelector(".name");
-      var bar = intro.querySelector("span");
-      var desc = intro.querySelector(".desc");
       var p = intro.querySelectorAll("p");
 
       gsap.set (name, {
-        xPercent: 50,
         autoAlpha: 0,
-      })
-
-      gsap.set (bar, {
-        autoAlpha: 0,
-      })
-
-      gsap.set (desc, {
-        autoAlpha: 0,
-        xPercent: -40,
       })
 
       tl.to(name, {
         autoAlpha: 1,
-        duration: 1,
+        duration: .8,
       }).to(name, {
-        delay: 1,
+        delay: .3,
         xPercent: 0,
-      }, '<.5').to(bar, {
-        autoAlpha: 1,
-      }, '<').to(desc, {
-        autoAlpha: 1,
-        duration: 1,
-        xPercent: 0,
-        ease: "power1.out",
-      }, '<').to(name, {
-        backgroundColor: "transparent",
-      }).to(intro, {
+      }, '<.5').to(intro, {
         duration: 1,
         backdropFilter: "blur(3px)",
       }).to(p, {
         delay: 1,
         duration: .8,
         yPercent: 100,
-      }).to(bar,  {
-        autoAlpha: 0,
-        yPercent: 100,
-      }, '<').to(intro, {
+      }).to(intro, {
         autoAlpha: 0,
         ease: "power4.out",
       })
@@ -74,8 +50,6 @@ export default {
   <div class="intro">
     <div class="intro-wrapper">
       <div class="name"><p>Pol Renau Wehr</p></div>
-      <span>|</span>
-      <div class="desc"><p>Video Storyteller</p></div>
     </div>
   </div>
 </template>
@@ -86,7 +60,6 @@ export default {
   height: 100dvh;
   background-color: #f4e8e0;
   @apply
-
   pointer-events-none
   flex
   justify-center
@@ -106,16 +79,7 @@ export default {
       overflow-hidden
       px-2;
     }
-    .name {
-      background-color: #f4e8e0;
-    }
    
-    .desc {
-      background-color: #f4e8e0;
-      @apply
-      text-slate-400
-      -z-10;
-    }
   }
 }
 </style>

@@ -35,6 +35,9 @@ export default {
         autoAlpha: 1,
         duration: 1,
         ease: "power1.out"
+      }).to(loadingName, {
+        yPercent: -100,
+        ease: "power1.out"
       })
 
       // const loadingBar = document.querySelector(".loading-bar");
@@ -109,15 +112,6 @@ export default {
         @apply
         text-white;
       }
-    }
-
-    .loading-bar {
-      width: 0%;
-      height: 1px;
-      @apply
-      bg-gray-700
-      rounded-sm
-      animate-pulse;
     }
   }
 
