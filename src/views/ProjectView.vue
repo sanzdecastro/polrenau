@@ -219,7 +219,7 @@ export default {
         !px-0;
         
         .media-section {
-          min-height: 100dvh;
+          min-height: 100vh;
           @apply
           justify-center
           items-center;
@@ -229,7 +229,7 @@ export default {
   }
 
   .project-media {
-    min-height: 100dvh;
+    min-height: 100vh;
     @apply
     -z-10
     bg-black

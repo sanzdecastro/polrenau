@@ -103,6 +103,8 @@ export default {
 <style>
 .legend {
   @apply
+  pl-1
+  md:pl-0
   pt-1
   text-gray-400;
 }

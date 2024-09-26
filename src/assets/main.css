@@ -37,7 +37,11 @@ header {
   gap-3
   grid-cols-6
   md:grid-cols-13;
-  width: 100vw;
+  width: 100%;
+  @media screen and (max-width: 768px) {
+    width: 100vw;
+  }
+  
   &.white {
     @apply
     text-white;
