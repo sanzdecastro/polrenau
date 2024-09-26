@@ -1,5 +1,7 @@
 <script>
 import { gsap } from "gsap";
+import { mapState } from 'pinia';
+import { useStore } from '@/stores/fetchStore.js';
 
 export default {
   name: 'Intro',
@@ -7,13 +9,13 @@ export default {
 
   },
   mounted() {
-    setTimeout(() => {
-      this.animateIntro();
-    }, 1000)
     
   },
   created() {
 
+  },
+  computed: {
+        ...mapState(useStore, ['loading'])
   },
   methods: {
     animateIntro() {
@@ -27,9 +29,6 @@ export default {
       const title = document.querySelectorAll("h2");
       const client = document.querySelectorAll(".client");
 
-      gsap.set (name, {
-        autoAlpha: 0,
-      })
 
       gsap.set (containers, {
         autoAlpha: 0,
@@ -51,10 +50,6 @@ export default {
       })
 
       tl.to(name, {
-        delay: .3,
-        autoAlpha: 1,
-        duration: .8,
-      }).to(name, {
         delay: .3,
         xPercent: 0,
       }, '<.5').to(intro, {
@@ -89,6 +84,17 @@ export default {
             ease: "power1.out"
           }, "<25%")
     }
+  },
+  watch: {
+      loading(value) {
+        if (!value) {
+          // La variable cambió a false
+          setTimeout(() => {
+            this.animateIntro();
+          }, 100);
+            
+        }
+      },
   }
 }
 </script>
@@ -123,6 +129,7 @@ export default {
 
     & > div {
       @apply
+      animate-pulse
       overflow-hidden
       px-2;
     }
