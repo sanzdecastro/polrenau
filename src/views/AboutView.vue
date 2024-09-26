@@ -71,7 +71,8 @@ export default {
 
   .slide-autoplay {
     @apply
-    
+    order-2
+    md:order-1
     overflow-hidden
     md:col-start-1
     md:col-end-6;
@@ -79,7 +80,9 @@ export default {
 
   .info {
     @apply
-    px-3
+    order-3
+    md:order-2
+    px-1
     md:px-0
     md:col-span-5;
     p {
@@ -90,8 +93,13 @@ export default {
 
   .blocks {
       @apply
-      
-      px-3
+      order-1
+      md:order-3
+      flex
+      gap-6
+      flex-wrap
+      md:flex-col
+      px-1
       md:px-0
       col-start-12
       col-span-2;
@@ -110,6 +118,13 @@ export default {
         mb-3;
       }
   }
+}
+
+.about + footer {
+  @apply
+  md:fixed
+  bottom-0
+  w-full;
 }
 
 </style>

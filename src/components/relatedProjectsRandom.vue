@@ -18,7 +18,7 @@ export default {
 <template>
 
     <div class="related-projects">
-      <span class="related-projects_title">Otros proyectos de Pol Renau</span>
+      <span class="related-projects_title">Otros proyectos de Pol Renau Wehr</span>
       <div v-for="related in related" class="related-projects_related">
         
         <router-link  :to="`${related.attributes.slug}` " :key="related.attributes.slug">

@@ -62,23 +62,24 @@ footer {
   .mail {
     @apply
     col-span-1
+    md:col-span-2
     col-start-1
     md:col-start-4;
   }
   .phone {
     @apply
     col-span-3
-    md:col-span-1
+    md:col-span-2
     col-start-2
-    md:col-start-5;
+    md:col-start-6;
   }
   p {
     @apply
     text-right
     col-span-2
-    md:col-span-1
+    md:col-span-2
     col-start-5
-    md:col-start-13
+    md:col-start-12
   }
 }
 

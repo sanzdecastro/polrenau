@@ -64,8 +64,8 @@ export default {
   </router-view>
 
   <footer :class="loading ? 'loading' : ''">
-    <a class="mail" href="mailto:info@polrenau.com">Mail</a>
-    <a class="phone" href="phone:+34695554421">(+34) 695 55 44 21</a>
+    <a class="mail" :href="'mailto:' + settings.ContactLine.MailUrl">{{settings.ContactLine.MailText}}</a>
+    <a class="phone" :href="'tel:' + settings.ContactLine.PhoneUrl">{{settings.ContactLine.PhoneText}}</a>
     <p>Pol Renau © 2024</p>
   </footer>
 

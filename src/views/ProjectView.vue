@@ -226,20 +226,22 @@ export default {
         }
       }
     }
-  }
+    .project-media {
+      min-height: 100vh;
+      @apply
+      items-center
+      -z-10
+      bg-black
+      text-white;
+      padding-bottom: calc(106 * var(--r));
 
-  .project-media {
-    min-height: 100vh;
-    @apply
-    -z-10
-    bg-black
-    text-white;
-    padding-bottom: calc(106 * var(--r));
-
-    @media screen and (max-width: 768px) {
-      padding-bottom: calc(60 * var(--rm));
+      @media screen and (max-width: 768px) {
+        padding-bottom: calc(60 * var(--rm));
+      }
     }
   }
+
+ 
 
 
   .project-info {

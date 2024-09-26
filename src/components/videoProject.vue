@@ -112,7 +112,7 @@ export default {
 .only-one {
   .col-span-full {
     .media-container {
-      height: 100%;
+      height: 100dvh;
       .vjs-matrix.video-js {
         width: 100%;
         height: 100%;
@@ -124,9 +124,10 @@ export default {
 
 .vjs-matrix.video-js {
   color: white;
-  width: 100%;
+  width: 100vw;
   height: 100%;
   @apply
+  overflow-hidden
   flex
   items-center
   justify-center;
@@ -141,6 +142,11 @@ export default {
     @apply
     relative;
   }
+  .vjs-control:focus {
+    text-shadow: none;
+    box-shadow: none;
+    border:none;
+  }
 }
 
 .vjs-poster {
@@ -153,6 +159,30 @@ export default {
     h-full
     w-full
     object-cover;
+  }
+}
+
+.video-js .vjs-control-bar {
+  bottom: 5px;
+  height: 50px;
+  button {
+    @apply
+    flex
+    justify-center
+    items-center;
+    span {
+      &:before {
+        @apply
+        relative;
+      }
+      
+    }
+  }
+  .vjs-remaining-time {
+    @apply
+    flex
+    items-center
+    justify-center;
   }
 }
 
