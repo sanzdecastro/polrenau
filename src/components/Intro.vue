@@ -7,7 +7,10 @@ export default {
 
   },
   mounted() {
-    this.animateIntro();
+    setTimeout(() => {
+      this.animateIntro();
+    }, 500)
+    
   },
   created() {
 
@@ -16,15 +19,39 @@ export default {
     animateIntro() {
       const tl = gsap.timeline({});
 
-      var intro = document.querySelector(".intro");
-      var name = intro.querySelector(".name");
-      var p = intro.querySelectorAll("p");
+      const intro = document.querySelector(".intro");
+      const name = intro.querySelector(".name");
+      const p = intro.querySelectorAll("p");
+      const containers = document.querySelectorAll(".project-loop .media-container");
+      const medias = document.querySelectorAll(".project-loop video");
+      const title = document.querySelectorAll("h2");
+      const client = document.querySelectorAll(".client");
 
       gsap.set (name, {
         autoAlpha: 0,
       })
 
+      gsap.set (containers, {
+        autoAlpha: 0,
+      })
+
+      gsap.set (medias, {
+        filter: "blur(15px)",
+        scale: 1.4,
+      })
+
+      gsap.set(title, {
+        xPercent: -10,
+        autoAlpha: 0,
+      })
+
+      gsap.set(client, {
+        xPercent: -10,
+        autoAlpha: 0,
+      })
+
       tl.to(name, {
+        delay: .3,
         autoAlpha: 1,
         duration: .8,
       }).to(name, {
@@ -40,7 +67,27 @@ export default {
       }).to(intro, {
         autoAlpha: 0,
         ease: "power4.out",
-      })
+      }).to(containers, {
+        duration: .5,
+        autoAlpha: 1,
+        stagger: .04,
+        ease: "power1.out"
+      }, '<').to(medias, {
+        duration: 1,
+        filter: "blur(0px)",
+        scale: 1,
+        stagger: .04,
+        ease: "power1.out"
+      }, "<.3").to(title, {
+            delay: .5,
+            xPercent: 0,
+            autoAlpha: 1,
+            ease: "power1.out"
+          }, "<").to(client, {
+            xPercent: 0,
+            autoAlpha: 1,
+            ease: "power1.out"
+          }, "<25%")
     }
   }
 }

@@ -221,6 +221,7 @@ export const useStore = defineStore('apiStore', {
           if (!visit) {
               this.visited = false
               sessionStorage.setItem('firstVisit', 'true');
+
           } else {
             this.visited = true
               console.log("Ya has visitado esta página antes.");
