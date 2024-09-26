@@ -19,16 +19,19 @@ export default {
         this.animateVideos();
       }, 300);
       this.player = videojs(this.$refs.videoPlayer, {
-      controls: true,
-      autoplay: this.media.autoplay,
-      preload: 'none',
-      loop: true,
-      sources: [{
-        src: this.media.Media.data.attributes.url,
-        type: 'video/mp4'
-      }]
-    });
-    })
+        controls: true,
+        autoplay: this.media.autoplay,
+        preload: 'none',
+        loop: true,
+        sources: [{
+          src: this.media.Media.data.attributes.url,
+          type: 'video/mp4'
+        }]
+      });
+      this.player.on('click', () => {
+        this.togglePlay();
+      });
+  })
     
   },
   beforeDestroy() {
@@ -69,9 +72,11 @@ export default {
       }
     },
 
-    pauseVideo() {
-      if (this.player) {
+    togglePlay() {
+      if (this.player && this.player.playing()) {
         this.player.pause();
+      } else {
+        this.player.play();
       }
     }
   },

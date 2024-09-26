@@ -218,6 +218,7 @@ export default {
      }
       .swiper-slide {
         @apply
+        bg-slate-50
         cursor-grab
         flex
         flex-col

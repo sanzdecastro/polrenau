@@ -52,7 +52,7 @@ export default {
       <div class="info_block" v-for="block in data.InfoBlock">
         <h3>{{ block.NameBlock }}</h3>
         <div class="info_block_line" v-for="line in block.LineInfoBlock">
-          <a :href="line.Url">↗ {{ line.NameLink }}</a>
+          <a target="_blank":href="line.LinkTo">↗ {{ line.NameLink }}</a>
         </div>
       </div>
     </div>
