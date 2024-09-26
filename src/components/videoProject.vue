@@ -31,6 +31,15 @@ export default {
       this.player.on('click', () => {
         this.togglePlay();
       });
+       // Evento touchstart para dispositivos móviles
+      this.player.on('touchstart', () => {
+        this.togglePlay();
+      });
+
+      // Evento touchend para dispositivos móviles
+      this.player.on('touchend', () => {
+        this.togglePlay();
+      });
   })
     
   },
