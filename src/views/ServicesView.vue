@@ -91,20 +91,20 @@ export default {
     <section class="services-view md:col-start-2 grid grid-cols-6 col-span-6 md:col-span-12 md:grid-cols-12">
      
         <div class="examples" v-for="service in data.data" :class="
-          service.attributes.Columns === 'col1' ? 'col-span-4 col-start-3 md:col-span-1' :
-          service.attributes.Columns === 'col2' ? 'col-span-4 col-start-3 md:col-span-2' : 
-          service.attributes.Columns === 'col3' ? 'col-span-4 col-start-3 md:col-span-3' : 
-          service.attributes.Columns === 'col4' ? 'col-span-4 col-start-3 md:col-span-4' : 
-          service.attributes.Columns === 'col5' ? 'col-span-4 col-start-3 md:col-span-5' : 
-          service.attributes.Columns === 'col6' ? 'col-span-4 col-start-3 md:col-span-6' : 
-          service.attributes.Columns === 'col7' ? 'col-span-4 col-start-3 md:col-span-7' : 
-          service.attributes.Columns === 'col8' ? 'col-span-4 col-start-3 md:col-span-8' : 
-          service.attributes.Columns === 'col9' ? 'col-span-4 col-start-3 md:col-span-9' : 
-          service.attributes.Columns === 'col10' ? 'col-span-4 col-start-3 md:col-span-10' : 
-          service.attributes.Columns === 'col11' ? 'col-span-4 col-start-3 md:col-span-11' : 
-          service.attributes.Columns === 'col12' ? 'col-span-4 col-start-3 md:col-span-12' : 
-          service.attributes.Columns === 'col13' ? 'col-span-4 col-start-3 md:col-span-13' : '' ">
-          <div class="info">
+          service.attributes.Columns === 'col1' ? 'col-span-6 col-start-1 md:col-span-1' :
+          service.attributes.Columns === 'col2' ? 'col-span-6 col-start-1 md:col-span-2' : 
+          service.attributes.Columns === 'col3' ? 'col-span-6 col-start-1 md:col-span-1' : 
+          service.attributes.Columns === 'col4' ? 'col-span-6 col-start-1 md:col-span-6' : 
+          service.attributes.Columns === 'col5' ? 'col-span-6 col-start-1 md:col-span-5' : 
+          service.attributes.Columns === 'col6' ? 'col-span-6 col-start-1 md:col-span-6' : 
+          service.attributes.Columns === 'col7' ? 'col-span-6 col-start-1 md:col-span-7' : 
+          service.attributes.Columns === 'col8' ? 'col-span-6 col-start-1 md:col-span-8' : 
+          service.attributes.Columns === 'col9' ? 'col-span-6 col-start-1 md:col-span-9' : 
+          service.attributes.Columns === 'col10' ? 'col-span-6 col-start-1 md:col-span-10' : 
+          service.attributes.Columns === 'col11' ? 'col-span-6 col-start-1 md:col-span-11' : 
+          service.attributes.Columns === 'col12' ? 'col-span-6 col-start-1 md:col-span-12' : 
+          service.attributes.Columns === 'col13' ? 'col-span-6 col-start-1 md:col-span-13' : '' ">
+          <div class="info px-1 md:px-0">
             <h2>{{ service.attributes.Titulo }}</h2>
             <p>{{ service.attributes.Description }}</p>
           </div>
@@ -125,7 +125,7 @@ export default {
             <swiper-slide class="" v-for="slide in service.attributes.Slides">
               <div></div>
               <videoPreview :class="service.attributes.AspectRatio" :thumbnail="slide"/>
-              <router-link class="link" v-if="slide.proyecto && slide.proyecto.data && slide.proyecto.data.attributes"  :to="`${slide.proyecto.data.attributes.slug}` ">
+              <router-link class="link px-1 md:px-0" v-if="slide.proyecto && slide.proyecto.data && slide.proyecto.data.attributes"  :to="`${slide.proyecto.data.attributes.slug}` ">
                 ↗ {{ slide.DescriptionMedia }}
               </router-link>
  
