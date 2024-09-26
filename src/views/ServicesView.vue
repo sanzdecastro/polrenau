@@ -26,7 +26,14 @@ export default {
   },
   setup() {
       return {
+        pagination: {
+          clickable: true,
+          renderBullet: function (index, className) {
+            return '<span class="' + className + '">' + '<p>' + (index + 1) + '</p>' + '</span>';
+          },
+        },
         modules: [Pagination, EffectFade, Autoplay, Navigation],
+        
       };
     },
   data() {
@@ -105,7 +112,7 @@ export default {
           <swiper
             :modules="modules"
             :effect="'fade'"
-            :pagination="{ clickable: true }"
+            :pagination="pagination"
             :slides-per-view="1"
             :space-between="0"
             :autoplay="{
@@ -167,21 +174,36 @@ export default {
        absolute
        top-0
        left-0
-       p-1
-       md:p-3
+       p-2
+       pt-3
+       md:py-3
        text-gray-400
        text-left
        h-fit
+       flex
+
        pointer-events-auto;
-       
+
        .swiper-pagination-bullet.swiper-pagination-bullet-active {
         @apply
-        bg-gray-400;
+        opacity-100
+        bg-transparent;
        }
        .swiper-pagination-bullet {
         @apply
+        p-2
+        flex
+        justify-center
+        items-center
         opacity-100
-        bg-gray-300;
+        border
+        border-solid
+        border-gray-200
+        text-gray-200
+        opacity-50
+        bg-transparent;
+        
+        
        }
     }
     .swiper-wrapper {

@@ -28,8 +28,7 @@ export default {
 
           tl.to('.media-container', {
             autoAlpha: 1,
-            delay: .5,
-            duration: 1,
+            duration: .8,
           }).to('.media-animation', {
             autoAlpha: 1,
             duration: 0.8,
@@ -42,7 +41,7 @@ export default {
           // La variable cambió a false
             this.animateVideos();
         }
-      },
+      }
   }
 }
 </script>
