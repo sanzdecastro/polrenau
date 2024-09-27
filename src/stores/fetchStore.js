@@ -228,6 +228,10 @@ export const useStore = defineStore('apiStore', {
           }
         },
 
+        reloadOrientationChange() {
+          location.reload(true);
+        },
+
         getClass(view) {
           let columnsClass = {
             col1: 'lg:col-span-1 col-span-3',

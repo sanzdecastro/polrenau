@@ -25,8 +25,11 @@ export default {
     this.storage();
     
   },
+  mounted(){
+    window.addEventListener('orientationchange', this.reloadOrientationChange);
+  },
   methods: {
-    ...mapActions(useStore, ['storage', 'fetchSettings', 'fetchCategory', 'fetchData']),
+    ...mapActions(useStore, ['storage', 'fetchSettings', 'fetchCategory', 'fetchData', 'reloadOrientationChange']),
 
     Lenis() {
       const lenis = new Lenis()
