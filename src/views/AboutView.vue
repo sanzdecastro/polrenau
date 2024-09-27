@@ -44,7 +44,7 @@ export default {
         })
 
         tl.to(blocks, {
-          
+          duration: 1,
           autoAlpha: 1,
           stagger: .3,
           ease: "power1.out"
@@ -100,12 +100,18 @@ export default {
   }
 
   .info {
+    padding-left: calc(20 * var(--r));
+    padding-right: calc(20 * var(--r));
     @apply
     order-3
     lg:order-2
-    px-1
     lg:px-0
     lg:col-span-5;
+    @media screen and (max-width: 1024px) {
+      width: 100%;
+      padding-left: calc(10 * var(--rm));
+      padding-right: calc(10 * var(--rm));
+    }
     p {
       @apply
       mb-2;
@@ -124,9 +130,16 @@ export default {
       lg:px-0
       col-start-12
       col-span-2;
+      padding-left: calc(20 * var(--r));
+      padding-right: calc(20 * var(--r));
+      @media screen and (max-width: 1024px) {
+        padding-left: calc(10 * var(--rm));
+        padding-right: calc(10 * var(--rm));
+      }
       .info_block {
         @apply
-        w-1/2
+        flex-1
+        lg:flex-initial
         lg:w-full;
         h3 {
           @apply

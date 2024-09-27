@@ -144,11 +144,18 @@ export default {
 }
 .examples {
   margin-bottom: calc(134 * var(--r));
+  
   @apply
   flex
   flex-col;
 
   .info {
+   @apply
+   flex-auto;
+    @media screen and (max-width: 1024px) {
+      padding-left: calc(10 * var(--rm));
+      padding-right: calc(10 * var(--rm));
+    }
     h2 {
       @apply
       block;
@@ -170,6 +177,7 @@ export default {
     flex-col
     w-full;
     .swiper-pagination {
+      
        @apply
        absolute
        top-0
@@ -225,6 +233,11 @@ export default {
         justify-center
         gap-1;
         .link {
+          
+          @media screen and (max-width: 1024px) {
+            padding-left: calc(10 * var(--rm));
+            padding-right: calc(10 * var(--rm));
+          }
           @apply
           bg-slate-50
           flex
