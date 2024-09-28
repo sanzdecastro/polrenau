@@ -70,9 +70,9 @@ export default {
         gsap.to(".project-info", {
           scrollTrigger: {
             trigger: ".project-media",
-            start: "bottom bottom", // Comienza cuando el borde inferior de .section-normal alcanza el borde inferior del viewport
-            pin: true, // Activa el pinning
-            pinSpacing: false, // Evita el espaciado adicional alrededor del elemento anclado
+            start: "bottom bottom", 
+            pin: true, 
+            pinSpacing: false, 
           },
         });
       },
@@ -246,7 +246,7 @@ export default {
 
 
   .project-info {
-    min-height: 50vh;
+    min-height: 100vh;
     position: relative;
     width: 100vw;
     @apply

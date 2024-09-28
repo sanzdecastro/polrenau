@@ -58,6 +58,18 @@ export default {
     @apply
     mt-2;
   }
+
+  .media-container.aspect-9_16 {
+    max-height: 500px;
+    @apply
+    bg-transparent
+    flex
+    justify-start;
+    video {
+      width: auto;
+      height: 100%;;
+    }
+  }
 }
 
 </style>

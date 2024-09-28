@@ -40,7 +40,7 @@ header {
   width: 100%;
   @media screen and (max-width: 1024px) {
     width: 100%;
-    padding: calc(10 * var(--rm));
+    padding: calc(4 * var(--rm));
   }
   
   &.white {
@@ -53,7 +53,7 @@ footer {
   padding: calc(20 * var(--r));
   margin-top: calc(387 * var(--r));;
   @media screen and (max-width: 1024px) {
-    padding: calc(10 * var(--rm));
+    padding: calc(4 * var(--rm));
   }
 
   @apply
