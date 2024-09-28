@@ -223,6 +223,10 @@ export default {
           @apply
           justify-center
           items-center;
+          @media screen and (min-width: 640px) and (max-width: 1024px) {
+            padding-left: 0px;
+            padding-right: 0px;
+          }
         }
       }
     }
@@ -239,6 +243,13 @@ export default {
       @media screen and (max-width: 1024px) {
         padding-bottom: calc(60 * var(--rm));
       }
+
+      .media-section {
+        @media screen and (min-width: 640px) and (max-width: 1024px) {
+          padding-left: calc(60 * var(--rm));
+          padding-right: calc(60 * var(--rm));
+        }
+      }
     }
   }
 
@@ -246,7 +257,7 @@ export default {
 
 
   .project-info {
-    min-height: 100vh;
+    
     position: relative;
     width: 100vw;
     @apply

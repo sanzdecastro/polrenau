@@ -39,6 +39,10 @@ export default {
         scale: 1.4,
       })
 
+      // gsap.set(name, {
+      //   yPercent: -100,
+      // })
+
       gsap.set(title, {
         xPercent: -10,
         autoAlpha: 0,
@@ -51,7 +55,7 @@ export default {
 
       tl.to(name, {
         delay: .3,
-        xPercent: 0,
+        yPercent: 0,
       }, '<.5').to(intro, {
         duration: 1,
         backdropFilter: "blur(3px)",
