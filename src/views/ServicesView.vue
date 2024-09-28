@@ -230,7 +230,7 @@ export default {
         cursor-grab
         flex
         flex-col
-        justify-center
+        justify-start
         gap-1;
         .link {
           

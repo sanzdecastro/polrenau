@@ -67,7 +67,7 @@ export default {
   </router-view>
 
   <footer :class="loading ? 'loading' : ''">
-    <a class="mail" :href="'mailto:' + settings.ContactLine.MailUrl">{{settings.ContactLine.MailText}}</a>
+    <a class="mail" v-if="settings" :href="'mailto:'">{{settings.ContactLine.MailText}}</a>
     <a class="phone" :href="'tel:' + settings.ContactLine.PhoneUrl">{{settings.ContactLine.PhoneText}}</a>
     <p>Pol Renau © 2024</p>
   </footer>

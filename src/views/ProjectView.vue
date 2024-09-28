@@ -247,10 +247,10 @@ export default {
 
   .project-info {
     min-height: 50vh;
-    z-index: 1;
     position: relative;
     width: 100vw;
     @apply
+    z-20
     overflow-hidden
     bg-slate-50
     grid
