@@ -257,9 +257,21 @@ export default {
     grid-cols-6
     lg:grid-cols-13
     gap-0;
+    &:before {
+      content: '';
+      @apply
+      absolute
+      top-0
+      left-0
+      w-full
+      h-full
+      bg-white;
+    }
 
     & > div {
       padding: calc(20 * var(--r));
+      @apply
+      z-30;
     }
   }
 
