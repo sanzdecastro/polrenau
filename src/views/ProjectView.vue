@@ -207,7 +207,6 @@ export default {
 
   .project-view {
     width: 100vw;
-    overflow: hidden;
     .pin-spacer {
       z-index: 0!important;
     }
