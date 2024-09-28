@@ -10,6 +10,31 @@ export default {
   },
   mounted() { 
     this.animateVideos();
+    // Función para hacer el lazy loading del video
+    const lazyLoadVideos = () => {
+      const lazyVideos = document.querySelectorAll("video.lazy-video");
+
+      if ("IntersectionObserver" in window) {
+        let lazyVideoObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const video = entry.target;
+              const source = document.createElement("source");
+              source.src = video.dataset.src; // Usamos el data-src para cargar el video
+              video.appendChild(source);
+              video.load(); // Cargar el video
+              lazyVideoObserver.unobserve(video); // Dejar de observar una vez cargado
+            }
+          });
+        });
+
+        lazyVideos.forEach((lazyVideo) => {
+          lazyVideoObserver.observe(lazyVideo); // Iniciar la observación de cada video
+        });
+      }
+    };
+
+    lazyLoadVideos();
   },
   computed: {
         ...mapState(useStore, ['loading'])
@@ -48,8 +73,8 @@ export default {
 
 <template>
   <div class="media-container pointer-events-none" :class="thumbnail.AspectRatio ? thumbnail.AspectRatio : aspectRatio">
-    <video class="media-animation" loop muted autoplay playsinline :src="thumbnail.Media.data.attributes.url" v-if="thumbnail.Media.data.attributes.ext === '.mp4'" ></video>
-    <img class="media-animation" :src="thumbnail.Media.data.attributes.url" v-if="thumbnail.Media.data.attributes.ext === '.jpg' || thumbnail.Media.data.attributes.ext === '.png'" >
+    <video class="media-animation lazy-video" loop muted autoplay playsinline :src="thumbnail.Media.data.attributes.url" v-if="thumbnail.Media.data.attributes.ext === '.mp4'" ></video>
+    <img loading="lazy" class="media-animation" :src="thumbnail.Media.data.attributes.url" v-if="thumbnail.Media.data.attributes.ext === '.jpg' || thumbnail.Media.data.attributes.ext === '.png'" >
   </div>
 </template>
 

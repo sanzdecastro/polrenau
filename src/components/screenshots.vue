@@ -24,7 +24,7 @@ export default {
         <picture>
           <source :srcset="screenshotItem.attributes.formats.small.url" media="(max-width: 600px)">
           <source :srcset="screenshotItem.attributes.formats.medium.url" media="(max-width: 1024px)">
-          <img :src="screenshotItem.attributes.formats.medium.url" alt="Descripción de la imagen">
+          <img :src="screenshotItem.attributes.formats.medium.url" alt="Descripción de la imagen" loading="lazy">
         </picture>
       </div>
     </div>

@@ -95,7 +95,7 @@ export default {
     <!-- <video ref="videoPlayer" controls :src="media.Media.data.attributes.url" v-if="media.Media.data.attributes.ext === '.mp4' && media.autoplay != true && media.Poster.data === null" class="media-animation"></video>
     <video ref="videoPlayer" controls :src="media.Media.data.attributes.url" v-if="media.Media.data.attributes.ext === '.mp4' && media.autoplay != true && media.Poster.data != null" class="media-animation" :poster="media.Poster.data.attributes.url"></video>
     <video ref="videoPlayer" autoplay playsinline controls loop controlsList="nodownload" :src="media.Media.data.attributes.url" v-if="media.Media.data.attributes.ext === '.mp4' && media.autoplay === true" class="media-animation"></video> -->
-    <img :src="media.Media.data.attributes.url" v-if="media.Media.data.attributes.ext === '.jpg' || media.Media.data.attributes.ext === '.png'" class="media-animation">
+    <img :src="media.Media.data.attributes.url" loading="lazy" v-if="media.Media.data.attributes.ext === '.jpg' || media.Media.data.attributes.ext === '.png'" class="media-animation">
   </div>
   <div v-if="media.Leyenda !== null" class="legend">{{ media.Leyenda }}</div>
 </template>
