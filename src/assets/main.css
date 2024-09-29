@@ -141,6 +141,7 @@ main.project-loop, main.services-page, .project-media, .about {
     h-full
     top-0
     left-0
+    -z-10
     animate-pulse
     bg-slate-200;
   }

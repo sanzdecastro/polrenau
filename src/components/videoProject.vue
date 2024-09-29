@@ -121,6 +121,18 @@ export default {
   }
 }
 
+.view {
+  .media-container {
+    @apply
+    bg-black
+    opacity-0;
+    &:before {
+      @apply
+      bg-black;
+    }
+  }
+}
+
 
 .vjs-matrix.video-js {
   color: white;
