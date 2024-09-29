@@ -128,13 +128,21 @@ main.project-loop, main.services-page, .project-media, .about {
   @apply
   w-full
   overflow-hidden
-  bg-black
+  
   flex
   justify-center
   items-center
   relative;
-  .media-animation {
-  
+  &:before {
+    content: '';
+    @apply
+    absolute
+    w-full
+    h-full
+    top-0
+    left-0
+    animate-pulse
+    bg-slate-200;
   }
 }
 
