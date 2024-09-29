@@ -44,19 +44,20 @@ export default {
           var tl = gsap.timeline({})
 
           gsap.set('.media-container', {
-            autoAlpha: 0,
+            autoAlpha: 1,
           })
 
           gsap.set('.media-animation', {
-            autoAlpha: 0,
+            filter: "blur(15px)",
+            scale: 1.4,
           })
 
           tl.to('.media-container', {
             autoAlpha: 1,
             duration: .8,
           }).to('.media-animation', {
-            autoAlpha: 1,
-            duration: 0.8,
+            filter: "blur(0px)",
+            scale: 1.1,
           });
         }
   },
@@ -73,7 +74,7 @@ export default {
 
 <template>
   <div class="media-container pointer-events-none" :class="thumbnail.AspectRatio ? thumbnail.AspectRatio : aspectRatio">
-    <video class="media-animation lazy-video" loop muted autoplay playsinline :src="thumbnail.Media.data.attributes.url" v-if="thumbnail.Media.data.attributes.ext === '.mp4'" ></video>
+    <video :poster="thumbnail.Media.data.attributes.previewUrl" class="media-animation lazy-video" loop muted autoplay playsinline :src="thumbnail.Media.data.attributes.url" v-if="thumbnail.Media.data.attributes.ext === '.mp4'" ></video>
     <img loading="lazy" class="media-animation" :src="thumbnail.Media.data.attributes.url" v-if="thumbnail.Media.data.attributes.ext === '.jpg' || thumbnail.Media.data.attributes.ext === '.png'" >
   </div>
 </template>

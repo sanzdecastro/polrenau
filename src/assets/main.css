@@ -134,8 +134,7 @@ main.project-loop, main.services-page, .project-media, .about {
   items-center
   relative;
   .media-animation {
-    @apply
-    opacity-0;
+  
   }
 }
 
