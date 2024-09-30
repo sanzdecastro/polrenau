@@ -126,7 +126,7 @@ export default {
               <div></div>
               <videoPreview :class="service.attributes.AspectRatio" :thumbnail="slide"/>
               <router-link class="link px-1 lg:px-0" v-if="slide.proyecto && slide.proyecto.data && slide.proyecto.data.attributes"  :to="`${slide.proyecto.data.attributes.slug}` ">
-                ↗ {{ slide.DescriptionMedia }}
+                &#8599; {{ slide.DescriptionMedia }}
               </router-link>
  
             </swiper-slide>
