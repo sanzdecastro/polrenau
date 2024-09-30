@@ -74,7 +74,7 @@ export default {
 
 <template>
   <div class="media-container pointer-events-none" :class="thumbnail.AspectRatio ? thumbnail.AspectRatio : aspectRatio">
-    <video :poster="thumbnail.Media.data.attributes.previewUrl" class="media-animation lazy-video" loop muted autoplay playsinline :src="thumbnail.Media.data.attributes.url" v-if="thumbnail.Media.data.attributes.ext === '.mp4'" ></video>
+    <video :poster="'https://res.cloudinary.com/dtsjetrtt/video/upload/so_2/' + thumbnail.Media.data.attributes.hash + '.mp4'" class="media-animation lazy-video" loop muted autoplay playsinline :src="thumbnail.Media.data.attributes.url" v-if="thumbnail.Media.data.attributes.ext === '.mp4'" ></video>
     <img loading="lazy" class="media-animation" :src="thumbnail.Media.data.attributes.url" v-if="thumbnail.Media.data.attributes.ext === '.jpg' || thumbnail.Media.data.attributes.ext === '.png'" >
   </div>
 </template>
