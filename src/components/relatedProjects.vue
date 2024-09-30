@@ -59,6 +59,13 @@ export default {
     mt-2;
   }
 
+  .media-container {
+    &:before {
+      @apply
+      -z-10;
+    }
+  }
+
   .media-container.aspect-9_16 {
     max-height: 500px;
     @apply

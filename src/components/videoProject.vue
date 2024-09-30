@@ -122,13 +122,15 @@ export default {
 }
 
 .view {
-  .media-container {
-    @apply
-    bg-black
-    opacity-0;
-    &:before {
+  .project-media {
+    .media-container {
       @apply
-      bg-black;
+      bg-black
+      opacity-0;
+      &:before {
+        @apply
+        bg-black;
+      }
     }
   }
 }
