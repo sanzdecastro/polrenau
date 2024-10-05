@@ -24,7 +24,7 @@ export default {
         preload: 'none',
         loop: true,
         sources: [{
-          src: 'https://res.cloudinary.com/dtsjetrtt/video/upload/so_2/' + this.media.Media.data.attributes.url,
+          src: 'https://res.cloudinary.com/dtsjetrtt/video/upload/so_2/' + this.media.Media.data.attributes.hash + '.mp4',
           type: 'video/mp4'
         }]
       });
