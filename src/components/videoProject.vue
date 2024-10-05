@@ -72,7 +72,14 @@ export default {
 
       let source;
       
-      if (screenWidth > 1080) {
+      if (screenWidth > 1920) {
+          source = {
+              src: 'https://res.cloudinary.com/dtsjetrtt/video/upload/so_2/w_1920/' + this.media.Media.data.attributes.hash + '.mp4',
+              type: 'video/mp4',
+              label: '1920p',
+              res: 1920
+          };
+      } else if (screenWidth > 1080) {
           source = {
               src: 'https://res.cloudinary.com/dtsjetrtt/video/upload/so_2/w_1080/' + this.media.Media.data.attributes.hash + '.mp4',
               type: 'video/mp4',

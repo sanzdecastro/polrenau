@@ -82,8 +82,8 @@ export default {
       <source :src="'https://res.cloudinary.com/dtsjetrtt/video/upload/so_2/w_720/' + thumbnail.Media.data.attributes.hash + '.webm'" type="video/webm" media="(min-width: 720px)">
       <source :src="'https://res.cloudinary.com/dtsjetrtt/video/upload/so_2/w_720/' + thumbnail.Media.data.attributes.hash + '.mp4'" type="video/mp4" media="(min-width: 720px)">
       <!-- 480p sources -->
-      <source :src="'https://res.cloudinary.com/dtsjetrtt/video/upload/so_2/w_480/' + thumbnail.Media.data.attributes.hash + '.webm'" type="video/webm" media="(max-width: 720px)">
-      <source :src="'https://res.cloudinary.com/dtsjetrtt/video/upload/so_2/w_480/' + thumbnail.Media.data.attributes.hash + '.mp4'" type="video/mp4" media="(max-width: 720px)">
+      <source :src="'https://res.cloudinary.com/dtsjetrtt/video/upload/so_2/w_480/' + thumbnail.Media.data.attributes.hash + '.webm'" type="video/webm" media="(max-width: 480px)">
+      <source :src="'https://res.cloudinary.com/dtsjetrtt/video/upload/so_2/w_480/' + thumbnail.Media.data.attributes.hash + '.mp4'" type="video/mp4" media="(max-width: 480px)">
     </video>
     <img loading="lazy" class="media-animation" :src="thumbnail.Media.data.attributes.url" v-if="thumbnail.Media.data.attributes.ext === '.jpg' || thumbnail.Media.data.attributes.ext === '.png'" >
   </div>
