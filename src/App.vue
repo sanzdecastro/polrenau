@@ -7,7 +7,7 @@ import Lenis from 'lenis'
 import { gsap } from "gsap";
 import Intro from './components/Intro.vue';
 import Loading from './components/loading.vue';
-import { SpeedInsights } from "@vercel/speed-insights/vue"
+
 
 export default {
   name: "App",
@@ -51,7 +51,6 @@ export default {
 </script>
 
 <template :class="loading ? 'loading' : ''">
-  <SpeedInsights />
   
   <header :class="{ white: whiteHeader, 'loadingHeader': loading, 'loaded': !loading }">
     <h1><RouterLink :to="{ name: 'home' }">Pol Renau Wehr</RouterLink></h1>
