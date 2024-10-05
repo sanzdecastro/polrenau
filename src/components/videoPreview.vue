@@ -74,9 +74,16 @@ export default {
 
 <template>
   <div class="media-container pointer-events-none" :class="thumbnail.AspectRatio ? thumbnail.AspectRatio : aspectRatio">
-    <video :poster="'https://res.cloudinary.com/dtsjetrtt/video/upload/so_2/' + thumbnail.Media.data.attributes.hash + '.jpg'" class="media-animation lazy-video" loop muted autoplay playsinline  v-if="thumbnail.Media.data.attributes.ext === '.mp4'" >
-      <source :src="'https://res.cloudinary.com/dtsjetrtt/video/upload/' + thumbnail.Media.data.attributes.hash + '.webm'" type="video/webm">
-      <source :src="thumbnail.Media.data.attributes.url" type="video/mp4">
+    <video :poster="'https://res.cloudinary.com/dtsjetrtt/video/upload/q_auto/' + thumbnail.Media.data.attributes.hash + '.jpg'" class="media-animation lazy-video" loop muted autoplay playsinline  v-if="thumbnail.Media.data.attributes.ext === '.mp4'" >
+      <!-- 1080p sources -->
+      <source :src="'https://res.cloudinary.com/dtsjetrtt/video/upload/so_2/w_1080/' + thumbnail.Media.data.attributes.hash + '.webm'" type="video/webm" media="(min-width: 1080px)">
+      <source :src="'https://res.cloudinary.com/dtsjetrtt/video/upload/so_2/w_1080/' + thumbnail.Media.data.attributes.hash + '.mp4'" type="video/mp4" media="(min-width: 1080px)">
+      <!-- 720p sources -->
+      <source :src="'https://res.cloudinary.com/dtsjetrtt/video/upload/so_2/w_720/' + thumbnail.Media.data.attributes.hash + '.webm'" type="video/webm" media="(min-width: 720px)">
+      <source :src="'https://res.cloudinary.com/dtsjetrtt/video/upload/so_2/w_720/' + thumbnail.Media.data.attributes.hash + '.mp4'" type="video/mp4" media="(min-width: 720px)">
+      <!-- 480p sources -->
+      <source :src="'https://res.cloudinary.com/dtsjetrtt/video/upload/so_2/w_480/' + thumbnail.Media.data.attributes.hash + '.webm'" type="video/webm" media="(max-width: 720px)">
+      <source :src="'https://res.cloudinary.com/dtsjetrtt/video/upload/so_2/w_480/' + thumbnail.Media.data.attributes.hash + '.mp4'" type="video/mp4" media="(max-width: 720px)">
     </video>
     <img loading="lazy" class="media-animation" :src="thumbnail.Media.data.attributes.url" v-if="thumbnail.Media.data.attributes.ext === '.jpg' || thumbnail.Media.data.attributes.ext === '.png'" >
   </div>
