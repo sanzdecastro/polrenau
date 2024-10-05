@@ -38,6 +38,7 @@ header {
   grid-cols-6
   lg:grid-cols-13;
   width: 100%;
+  
   @media screen and (max-width: 1024px) {
     width: 100%;
     padding: calc(4 * var(--rm));

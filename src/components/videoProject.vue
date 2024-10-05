@@ -122,12 +122,12 @@ export default {
 <template>
   
   <div class="media-container" :class="media.AspectRatio">
-    <video v-if="media.Poster.data !== null && media.Media.data.attributes.ext === '.mp4'" ref="videoPlayer" class="vjs-matrix video-js media-animation" :poster=media.Poster.data.attributes.url playsinline></video>
-    <video v-if="media.Poster.data === null && media.Media.data.attributes.ext === '.mp4'" ref="videoPlayer" class="vjs-matrix video-js media-animation"></video>
+    <video width="100%" v-if="media.Poster.data !== null && media.Media.data.attributes.ext === '.mp4'" ref="videoPlayer" class="vjs-matrix video-js media-animation" :poster=media.Poster.data.attributes.url playsinline></video>
+    <video width="100%" v-if="media.Poster.data === null && media.Media.data.attributes.ext === '.mp4'" ref="videoPlayer" class="vjs-matrix video-js media-animation"></video>
     <!-- <video ref="videoPlayer" controls :src="media.Media.data.attributes.url" v-if="media.Media.data.attributes.ext === '.mp4' && media.autoplay != true && media.Poster.data === null" class="media-animation"></video>
     <video ref="videoPlayer" controls :src="media.Media.data.attributes.url" v-if="media.Media.data.attributes.ext === '.mp4' && media.autoplay != true && media.Poster.data != null" class="media-animation" :poster="media.Poster.data.attributes.url"></video>
     <video ref="videoPlayer" autoplay playsinline controls loop controlsList="nodownload" :src="media.Media.data.attributes.url" v-if="media.Media.data.attributes.ext === '.mp4' && media.autoplay === true" class="media-animation"></video> -->
-    <img :src="media.Media.data.attributes.url" loading="lazy" v-if="media.Media.data.attributes.ext === '.jpg' || media.Media.data.attributes.ext === '.png'" class="media-animation">
+    <img width="100%" :src="media.Media.data.attributes.url" loading="lazy" v-if="media.Media.data.attributes.ext === '.jpg' || media.Media.data.attributes.ext === '.png'" class="media-animation">
   </div>
   <div v-if="media.Leyenda !== null" class="legend">{{ media.Leyenda }}</div>
 </template>
