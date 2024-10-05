@@ -7,7 +7,6 @@ import Lenis from 'lenis'
 import { gsap } from "gsap";
 import Intro from './components/Intro.vue';
 import Loading from './components/loading.vue';
-import { inject } from "@vercel/analytics"
 import { SpeedInsights } from "@vercel/speed-insights/vue"
 
 export default {
