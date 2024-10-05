@@ -17,29 +17,16 @@ export default {
     this.$nextTick(() => {
       setTimeout(() => {
         this.animateVideos();
+        this.setSource();
       }, 300);
       this.player = videojs(this.$refs.videoPlayer, {
         controls: true,
         autoplay: this.media.autoplay,
         preload: 'none',
         loop: true,
-        sources: [{
-          src: 'https://res.cloudinary.com/dtsjetrtt/video/upload/so_2/' + this.media.Media.data.attributes.hash + '.mp4',
-          type: 'video/mp4'
-        }]
+        
       });
-      this.player.on('click', () => {
-        this.togglePlay();
-      });
-      //  // Evento touchstart para dispositivos móviles
-      // this.player.on('touchstart', () => {
-      //   this.togglePlay();
-      // });
 
-      // // Evento touchend para dispositivos móviles
-      // this.player.on('touchend', () => {
-      //   this.togglePlay();
-      // });
   })
     
   },
@@ -80,6 +67,44 @@ export default {
         this.player.play();
       }
     },
+    setSource() {
+      const screenWidth = window.innerWidth;
+
+      let source;
+      
+      if (screenWidth > 1080) {
+          source = {
+              src: 'https://res.cloudinary.com/dtsjetrtt/video/upload/so_2/w_1080/' + this.media.Media.data.attributes.hash + '.mp4',
+              type: 'video/mp4',
+              label: '1080p',
+              res: 1080
+          };
+      } else if (screenWidth > 720) {
+          source = {
+              src: 'https://res.cloudinary.com/dtsjetrtt/video/upload/so_2/w_1080/' + this.media.Media.data.attributes.hash + '.mp4',
+              type: 'video/mp4',
+              label: '1080p',
+              res: 1080
+          };
+      } else if (screenWidth > 480) {
+          source = {
+              src: 'https://res.cloudinary.com/dtsjetrtt/video/upload/so_2/w_720/' + this.media.Media.data.attributes.hash + '.mp4',
+              type: 'video/mp4',
+              label: '720p',
+              res: 720
+          };
+      } else {
+          source = {
+            src: 'https://res.cloudinary.com/dtsjetrtt/video/upload/so_2/w_480/' + this.media.Media.data.attributes.hash + '.mp4',
+            type: 'video/mp4',
+            label: '480p',
+            res: 480
+          };
+      }
+
+      // Cambiar la fuente del reproductor
+      this.player.src(source);
+    }
 
     
   },
