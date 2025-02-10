@@ -74,17 +74,17 @@ export default {
       
       if (screenWidth > 1920) {
           source = {
+              src: 'https://res.cloudinary.com/dtsjetrtt/video/upload/so_2/w_2560/' + this.media.Media.data.attributes.hash + '.mp4',
+              type: 'video/mp4',
+              label: '2560p',
+              res: 2560
+          };
+      } else if (screenWidth > 1080) {
+          source = {
               src: 'https://res.cloudinary.com/dtsjetrtt/video/upload/so_2/w_1920/' + this.media.Media.data.attributes.hash + '.mp4',
               type: 'video/mp4',
               label: '1920p',
               res: 1920
-          };
-      } else if (screenWidth > 1080) {
-          source = {
-              src: 'https://res.cloudinary.com/dtsjetrtt/video/upload/so_2/w_1080/' + this.media.Media.data.attributes.hash + '.mp4',
-              type: 'video/mp4',
-              label: '1080p',
-              res: 1080
           };
       } else if (screenWidth > 720) {
           source = {
